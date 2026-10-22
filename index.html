@@ -188,10 +188,10 @@
         <!-- 4 Stage Level Selector Pills -->
         <div class="interactive flex items-center justify-center gap-1.5 md:gap-3 overflow-x-auto py-1">
             <button onclick="teleportToZone(1)" id="zone-btn-1" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-emerald-500 text-white shadow">
-                <span>🔤</span> <span>1. Dunia Huruf (26 Pos A-Z)</span>
+                <span>🔤</span> <span>1. Dunia Huruf</span>
             </button>
             <button onclick="teleportToZone(2)" id="zone-btn-2" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-amber-500 text-white shadow">
-                <span>🧩</span> <span>2. Suku Kata (BA-BI-BU)</span>
+                <span>🧩</span> <span>2. Suku Kata</span>
             </button>
             <button onclick="teleportToZone(3)" id="zone-btn-3" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-pink-500 text-white shadow">
                 <span>🖼️</span> <span>3. Misi Kata</span>
@@ -199,12 +199,6 @@
             <button onclick="teleportToZone(4)" id="zone-btn-4" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-purple-600 text-white shadow">
                 <span>👑</span> <span>4. Kalimat & Istana</span>
             </button>
-        </div>
-
-        <!-- Quick Jump A-Z Bar -->
-        <div class="interactive flex items-center justify-start md:justify-center gap-1 overflow-x-auto py-1 px-2 bg-white/85 backdrop-blur rounded-2xl border-2 border-emerald-400 shadow max-w-4xl mx-auto w-full">
-            <span class="text-[11px] font-extrabold text-emerald-800 px-1.5 shrink-0">Lompat A-Z:</span>
-            <div id="az-quick-bar" class="flex items-center gap-1"></div>
         </div>
     </div>
 
@@ -341,7 +335,7 @@
                     </div>
                     <div>
                         <div class="text-xs text-gray-500 font-bold">MISI SELESAI</div>
-                        <div id="cert-missions" class="text-xl md:text-2xl font-extrabold text-emerald-600">0 / 38</div>
+                        <div id="cert-missions" class="text-xl md:text-2xl font-extrabold text-emerald-600">0 / 104</div>
                     </div>
                     <div>
                         <div class="text-xs text-gray-500 font-bold">PREDIKAT</div>
@@ -368,82 +362,205 @@
 
     <script>
         /********************************************************************
-         * 1. DATA KURIKULUM LITERASI TK A/B (HURUF, SUKU KATA, KATA, KALIMAT)
+         * 1. DATA KURIKULUM LITERASI TK A/B LENGKAP 26 A-Z DI SEMUA 4 TAHAP
          ********************************************************************/
-        const ALPHABET_A_TO_Z = [
-            { letter: 'A', word: 'Ayam', emoji: '🐔', phonetic: 'a', desc: 'A untuk Ayam. Kukuruyuk!' },
-            { letter: 'B', word: 'Bola', emoji: '⚽', phonetic: 'be', desc: 'B untuk Bola. Bola bundar!' },
-            { letter: 'C', word: 'Cicak', emoji: '🦎', phonetic: 'ce', desc: 'C untuk Cicak di dinding.' },
-            { letter: 'D', word: 'Domba', emoji: '🐑', phonetic: 'de', desc: 'D untuk Domba berbulu putih.' },
-            { letter: 'E', word: 'Elang', emoji: '🦅', phonetic: 'e', desc: 'E untuk Elang terbang tinggi.' },
-            { letter: 'F', word: 'Foto', emoji: '📷', phonetic: 'ef', desc: 'F untuk Foto bersama teman.' },
-            { letter: 'G', word: 'Gajah', emoji: '🐘', phonetic: 'ge', desc: 'G untuk Gajah bertelinga lebar.' },
-            { letter: 'H', word: 'Harimau', emoji: '🐯', phonetic: 'ha', desc: 'H untuk Harimau belang.' },
-            { letter: 'I', word: 'Ikan', emoji: '🐟', phonetic: 'i', desc: 'I untuk Ikan berenang di air.' },
-            { letter: 'J', word: 'Jeruk', emoji: '🍊', phonetic: 'je', desc: 'J untuk Jeruk manis segar.' },
-            { letter: 'K', word: 'Kucing', emoji: '🐱', phonetic: 'ka', desc: 'K untuk Kucing lucu. Meong!' },
-            { letter: 'L', word: 'Lampu', emoji: '💡', phonetic: 'el', desc: 'L untuk Lampu yang bersinar terang.' },
-            { letter: 'M', word: 'Mangga', emoji: '🥭', phonetic: 'em', desc: 'M untuk Mangga harum manis.' },
-            { letter: 'N', word: 'Nanas', emoji: '🍍', phonetic: 'en', desc: 'N untuk Nanas kuning segar.' },
-            { letter: 'O', word: 'Obat', emoji: '💊', phonetic: 'o', desc: 'O untuk Obat supaya lekas sehat.' },
-            { letter: 'P', word: 'Pisang', emoji: '🍌', phonetic: 'pe', desc: 'P untuk Pisang kuning manis.' },
-            { letter: 'Q', word: 'Quran', emoji: '📖', phonetic: 'ki', desc: 'Q untuk Quran kitab suci.' },
-            { letter: 'R', word: 'Rusa', emoji: '🦌', phonetic: 'er', desc: 'R untuk Rusa bertanduk indah.' },
-            { letter: 'S', word: 'Sapi', emoji: '🐄', phonetic: 'es', desc: 'S untuk Sapi penghasil susu.' },
-            { letter: 'T', word: 'Topi', emoji: '🧢', phonetic: 'te', desc: 'T untuk Topi dipakai di kepala.' },
-            { letter: 'U', word: 'Ular', emoji: '🐍', phonetic: 'u', desc: 'U untuk Ular yang panjang.' },
-            { letter: 'V', word: 'Vas', emoji: '🏺', phonetic: 've', desc: 'V untuk Vas tempat bunga indah.' },
-            { letter: 'W', word: 'Wortel', emoji: '🥕', phonetic: 'we', desc: 'W untuk Wortel sayur sehat.' },
-            { letter: 'X', word: 'Xilofon', emoji: '🎼', phonetic: 'eks', desc: 'X untuk Xilofon alat musik pukul.' },
-            { letter: 'Y', word: 'Yoyo', emoji: '🪀', phonetic: 'ye', desc: 'Y untuk Yoyo mainan naik turun.' },
-            { letter: 'Z', word: 'Zebra', emoji: '🦓', phonetic: 'zet', desc: 'Z untuk Zebra belang hitam putih.' }
+        const CURRICULUM_AZ = [
+            {
+                letter: 'A', word: 'Ayam', syllables: ['A', 'YAM'], emoji: '🐔',
+                sukuGroup: ['A', 'I', 'U', 'E', 'O'], targetVowel: 'A', targetSyl: 'A',
+                sukuExamples: ['A-YAM 🐔', 'I-KAN 🐟', 'U-LAR 🐍', 'E-LANG 🦅', 'O-BAT 💊'],
+                sentence: 'INI AYAM JAGO', words: ['INI', 'AYAM', 'JAGO']
+            },
+            {
+                letter: 'B', word: 'Bola', syllables: ['BO', 'LA'], emoji: '⚽',
+                sukuGroup: ['BA', 'BI', 'BU', 'BE', 'BO'], targetVowel: 'O', targetSyl: 'BO',
+                sukuExamples: ['BA-JU 👕', 'BI-RU 🔵', 'BU-KU 📚', 'BE-BEK 🦆', 'BO-LA ⚽'],
+                sentence: 'BUDI MAIN BOLA', words: ['BUDI', 'MAIN', 'BOLA']
+            },
+            {
+                letter: 'C', word: 'Cicak', syllables: ['CI', 'CAK'], emoji: '🦎',
+                sukuGroup: ['CA', 'CI', 'CU', 'CE', 'CO'], targetVowel: 'I', targetSyl: 'CI',
+                sukuExamples: ['CA-BAI 🌶️', 'CI-CAK 🦎', 'CU-CI 🧼', 'CE-RITA 📖', 'CO-KELAT 🍫'],
+                sentence: 'CICAK DI DINDING', words: ['CICAK', 'DI', 'DINDING']
+            },
+            {
+                letter: 'D', word: 'Domba', syllables: ['DOM', 'BA'], emoji: '🐑',
+                sukuGroup: ['DA', 'DI', 'DU', 'DE', 'DO'], targetVowel: 'O', targetSyl: 'DO',
+                sukuExamples: ['DA-DU 🎲', 'DI-NDING 🧱', 'DU-KU 🍈', 'DE-LIMA 🍎', 'DO-MBA 🐑'],
+                sentence: 'DOMBA MAKAN RUMPUT', words: ['DOMBA', 'MAKAN', 'RUMPUT']
+            },
+            {
+                letter: 'E', word: 'Elang', syllables: ['E', 'LANG'], emoji: '🦅',
+                sukuGroup: ['E', 'A', 'I', 'U', 'O'], targetVowel: 'E', targetSyl: 'E',
+                sukuExamples: ['E-LANG 🦅', 'A-PEL 🍎', 'I-TIK 🐤', 'U-DANG 🦐', 'O-BOR 🔥'],
+                sentence: 'ELANG TERBANG TINGGI', words: ['ELANG', 'TERBANG', 'TINGGI']
+            },
+            {
+                letter: 'F', word: 'Foto', syllables: ['FO', 'TO'], emoji: '📷',
+                sukuGroup: ['FA', 'FI', 'FU', 'FE', 'FO'], targetVowel: 'O', targetSyl: 'FO',
+                sukuExamples: ['FA-JAR 🌅', 'FI-LM 🎬', 'FU-YUNG 🍳', 'FE-RI ⛴️', 'FO-TO 📷'],
+                sentence: 'INI FOTO KAMI', words: ['INI', 'FOTO', 'KAMI']
+            },
+            {
+                letter: 'G', word: 'Gajah', syllables: ['GA', 'JAH'], emoji: '🐘',
+                sukuGroup: ['GA', 'GI', 'GU', 'GE', 'GO'], targetVowel: 'A', targetSyl: 'GA',
+                sukuExamples: ['GA-JAH 🐘', 'GI-GI 🦷', 'GU-LA 🍬', 'GE-LAS 🥛', 'GO-RILA 🦍'],
+                sentence: 'GAJAH TELINGA LEBAR', words: ['GAJAH', 'TELINGA', 'LEBAR']
+            },
+            {
+                letter: 'H', word: 'Harimau', syllables: ['HA', 'RI', 'MAU'], emoji: '🐯',
+                sukuGroup: ['HA', 'HI', 'HU', 'HE', 'HO'], targetVowel: 'A', targetSyl: 'HA',
+                sukuExamples: ['HA-RIMAU 🐯', 'HI-U 🦈', 'HU-JAN 🌧️', 'HE-LIKOPTER 🚁', 'HO-TEL 🏨'],
+                sentence: 'HARIMAU LARI CEPAT', words: ['HARIMAU', 'LARI', 'CEPAT']
+            },
+            {
+                letter: 'I', word: 'Ikan', syllables: ['I', 'KAN'], emoji: '🐟',
+                sukuGroup: ['I', 'A', 'U', 'E', 'O'], targetVowel: 'I', targetSyl: 'I',
+                sukuExamples: ['I-KAN 🐟', 'A-WAN ☁️', 'U-BI 🍠', 'E-MBER 🪣', 'O-NTA 🐪'],
+                sentence: 'IKAN DI KOLAM', words: ['IKAN', 'DI', 'KOLAM']
+            },
+            {
+                letter: 'J', word: 'Jeruk', syllables: ['JE', 'RUK'], emoji: '🍊',
+                sukuGroup: ['JA', 'JI', 'JU', 'JE', 'JO'], targetVowel: 'E', targetSyl: 'JE',
+                sukuExamples: ['JA-RI 🖐️', 'JI-LBAB 🧕', 'JU-S 🧃', 'JE-RUK 🍊', 'JO-GGING 🏃'],
+                sentence: 'JERUK MANIS SEGAR', words: ['JERUK', 'MANIS', 'SEGAR']
+            },
+            {
+                letter: 'K', word: 'Kucing', syllables: ['KU', 'CING'], emoji: '🐱',
+                sukuGroup: ['KA', 'KI', 'KU', 'KE', 'KO'], targetVowel: 'U', targetSyl: 'KU',
+                sukuExamples: ['KA-KI 🦶', 'KI-PAS 🪭', 'KU-CING 🐱', 'KE-JU 🧀', 'KO-PI ☕'],
+                sentence: 'KUCING LUCU TIDUR', words: ['KUCING', 'LUCU', 'TIDUR']
+            },
+            {
+                letter: 'L', word: 'Lampu', syllables: ['LAM', 'PU'], emoji: '💡',
+                sukuGroup: ['LA', 'LI', 'LU', 'LE', 'LO'], targetVowel: 'A', targetSyl: 'LA',
+                sukuExamples: ['LA-MPU 💡', 'LI-LIN 🕯️', 'LU-KISAN 🖼️', 'LE-MARI 🚪', 'LO-NCENG 🔔'],
+                sentence: 'LAMPU NYALA TERANG', words: ['LAMPU', 'NYALA', 'TERANG']
+            },
+            {
+                letter: 'M', word: 'Mata', syllables: ['MA', 'TA'], emoji: '👀',
+                sukuGroup: ['MA', 'MI', 'MU', 'ME', 'MO'], targetVowel: 'A', targetSyl: 'MA',
+                sukuExamples: ['MA-TA 👀', 'MI-NUM 🥛', 'MU-LUT 👄', 'ME-JA 🪑', 'MO-BIL 🚗'],
+                sentence: 'DUA MATA SAYA', words: ['DUA', 'MATA', 'SAYA']
+            },
+            {
+                letter: 'N', word: 'Nanas', syllables: ['NA', 'NAS'], emoji: '🍍',
+                sukuGroup: ['NA', 'NI', 'NU', 'NE', 'NO'], targetVowel: 'A', targetSyl: 'NA',
+                sukuExamples: ['NA-NAS 🍍', 'NI-LA 🐟', 'NU-RI 🦜', 'NE-NEK 👵', 'NO-MOR 🔢'],
+                sentence: 'BUAH NANAS KUNING', words: ['BUAH', 'NANAS', 'KUNING']
+            },
+            {
+                letter: 'O', word: 'Obat', syllables: ['O', 'BAT'], emoji: '💊',
+                sukuGroup: ['O', 'A', 'I', 'U', 'E'], targetVowel: 'O', targetSyl: 'O',
+                sukuExamples: ['O-BAT 💊', 'A-PI 🔥', 'I-BU 👩', 'U-ANG 💵', 'E-SKRIM 🍦'],
+                sentence: 'MINUM OBAT SEHAT', words: ['MINUM', 'OBAT', 'SEHAT']
+            },
+            {
+                letter: 'P', word: 'Pisang', syllables: ['PI', 'SANG'], emoji: '🍌',
+                sukuGroup: ['PA', 'PI', 'PU', 'PE', 'PO'], targetVowel: 'I', targetSyl: 'PI',
+                sukuExamples: ['PA-DI 🌾', 'PI-SANG 🍌', 'PU-LAU 🏝️', 'PE-PAYA 🍈', 'PO-HON 🌳'],
+                sentence: 'MAKAN BUAH PISANG', words: ['MAKAN', 'BUAH', 'PISANG']
+            },
+            {
+                letter: 'Q', word: 'Quran', syllables: ['QUR', 'AN'], emoji: '📖',
+                sukuGroup: ['QA', 'QI', 'QU', 'QE', 'QO'], targetVowel: 'U', targetSyl: 'QU',
+                sukuExamples: ['QA-RI 🎙️', 'QI-BLAT 🕋', 'QU-RAN 📖', 'QE-SH 🪙', 'QO-MAH 🕌'],
+                sentence: 'SAYA BACA QURAN', words: ['SAYA', 'BACA', 'QURAN']
+            },
+            {
+                letter: 'R', word: 'Rusa', syllables: ['RU', 'SA'], emoji: '🦌',
+                sukuGroup: ['RA', 'RI', 'RU', 'RE', 'RO'], targetVowel: 'U', targetSyl: 'RU',
+                sukuExamples: ['RA-JA 🤴', 'RI-ANG 😄', 'RU-SA 🦌', 'RE-NANG 🏊', 'RO-TI 🍞'],
+                sentence: 'RUSA LARI KENCANG', words: ['RUSA', 'LARI', 'KENCANG']
+            },
+            {
+                letter: 'S', word: 'Sapi', syllables: ['SA', 'PI'], emoji: '🐄',
+                sukuGroup: ['SA', 'SI', 'SU', 'SE', 'SO'], targetVowel: 'A', targetSyl: 'SA',
+                sukuExamples: ['SA-PI 🐄', 'SI-SIR 🪮', 'SU-SU 🥛', 'SE-PATU 👟', 'SO-TO 🍲'],
+                sentence: 'SAYA SUKA SUSU SAPI', words: ['SAYA', 'SUKA', 'SUSU', 'SAPI']
+            },
+            {
+                letter: 'T', word: 'Topi', syllables: ['TO', 'PI'], emoji: '🧢',
+                sukuGroup: ['TA', 'TI', 'TU', 'TE', 'TO'], targetVowel: 'O', targetSyl: 'TO',
+                sukuExamples: ['TA-S 🎒', 'TI-KUS 🐭', 'TU-PAI 🐿️', 'TE-LUR 🥚', 'TO-PI 🧢'],
+                sentence: 'TOPI SAYA BUNDAR', words: ['TOPI', 'SAYA', 'BUNDAR']
+            },
+            {
+                letter: 'U', word: 'Ular', syllables: ['U', 'LAR'], emoji: '🐍',
+                sukuGroup: ['U', 'A', 'I', 'E', 'O'], targetVowel: 'U', targetSyl: 'U',
+                sukuExamples: ['U-LAR 🐍', 'A-IR 💧', 'I-KAT 🪢', 'E-MAS 🪙', 'O-BOR 🔥'],
+                sentence: 'ULAR ITU PANJANG', words: ['ULAR', 'ITU', 'PANJANG']
+            },
+            {
+                letter: 'V', word: 'Vas', syllables: ['VAS'], emoji: '🏺',
+                sukuGroup: ['VA', 'VI', 'VU', 'VE', 'VO'], targetVowel: 'A', targetSyl: 'VA',
+                sukuExamples: ['VA-S 🏺', 'VI-TAMIN 🍊', 'VU-LKANO 🌋', 'VE-SPA 🛵', 'VO-LI 🏐'],
+                sentence: 'BUNGA DI VAS', words: ['BUNGA', 'DI', 'VAS']
+            },
+            {
+                letter: 'W', word: 'Wortel', syllables: ['WOR', 'TEL'], emoji: '🥕',
+                sukuGroup: ['WA', 'WI', 'WU', 'WE', 'WO'], targetVowel: 'O', targetSyl: 'WO',
+                sukuExamples: ['WA-JAH 😊', 'WI-Sior 🎖️', 'WU-DU 💧', 'WE-KER ⏰', 'WO-RTEL 🥕'],
+                sentence: 'KELINCI MAKAN WORTEL', words: ['KELINCI', 'MAKAN', 'WORTEL']
+            },
+            {
+                letter: 'X', word: 'Xilofon', syllables: ['XI', 'LO', 'FON'], emoji: '🎼',
+                sukuGroup: ['XA', 'XI', 'XU', 'XE', 'XO'], targetVowel: 'I', targetSyl: 'XI',
+                sukuExamples: ['XA-VIER 🌟', 'XI-LOFON 🎼', 'XU-FU 🏛️', 'XE-NON 💡', 'XO-XO 💖'],
+                sentence: 'MAIN MUSIK XILOFON', words: ['MAIN', 'MUSIK', 'XILOFON']
+            },
+            {
+                letter: 'Y', word: 'Yoyo', syllables: ['YO', 'YO'], emoji: '🪀',
+                sukuGroup: ['YA', 'YI', 'YU', 'YE', 'YO'], targetVowel: 'O', targetSyl: 'YO',
+                sukuExamples: ['YA-KIN 👍', 'YI-N ☯️', 'YU-YU 🦀', 'YE-S 🙌', 'YO-YO 🪀'],
+                sentence: 'MAIN YOYO SERU', words: ['MAIN', 'YOYO', 'SERU']
+            },
+            {
+                letter: 'Z', word: 'Zebra', syllables: ['ZE', 'BRA'], emoji: '🦓',
+                sukuGroup: ['ZA', 'ZI', 'ZU', 'ZE', 'ZO'], targetVowel: 'E', targetSyl: 'ZE',
+                sukuExamples: ['ZA-ITUN 🫒', 'ZI-KIR 📿', 'ZU-HUR 🕌', 'ZE-BRA 🦓', 'ZO-NA 📍'],
+                sentence: 'ZEBRA BELANG HITAM', words: ['ZEBRA', 'BELANG', 'HITAM']
+            }
         ];
 
-        const SYLLABLE_FAMILIES = [
-            { consonant: 'B', syllables: ['BA', 'BI', 'BU', 'BE', 'BO'], examples: ['BA-JU 👕', 'BI-RU 🔵', 'BU-KU 📚', 'BE-BEK 🦆', 'BO-LA ⚽'] },
-            { consonant: 'M', syllables: ['MA', 'MI', 'MU', 'ME', 'MO'], examples: ['MA-TA 👀', 'MI-NUM 🥛', 'MU-LUT 👄', 'ME-JA 🪑', 'MO-BIL 🚗'] },
-            { consonant: 'S', syllables: ['SA', 'SI', 'SU', 'SE', 'SO'], examples: ['SA-PI 🐄', 'SI-SI 📏', 'SU-SU 🥛', 'SE-PATU 👟', 'SO-TO 🍲'] },
-            { consonant: 'K', syllables: ['KA', 'KI', 'KU', 'KE', 'KO'], examples: ['KA-KI 🦶', 'KI-PAS 🪭', 'KU-DA 🐴', 'KE-JU 🧀', 'KO-PI ☕'] },
-            { consonant: 'P', syllables: ['PA', 'PI', 'PU', 'PE', 'PO'], examples: ['PA-DI 🌾', 'PI-SANG 🍌', 'PU-LAU 🏝️', 'PE-PA-YA 🍈', 'PO-HON 🌳'] }
-        ];
+        const ALPHABET_A_TO_Z = CURRICULUM_AZ;
+        const SYLLABLE_FAMILIES = CURRICULUM_AZ.map(item => ({
+            consonant: item.letter,
+            syllables: item.sukuGroup,
+            examples: item.sukuExamples
+        }));
 
         const LETTER_COLORS = [
             0xef4444, 0x3b82f6, 0x10b981, 0xf59e0b, 0x8b5cf6, 0xec4899,
             0x06b6d4, 0xf97316, 0x14b8a6, 0x6366f1, 0xeab308, 0xd946ef, 0x22c55e
         ];
 
-        // Generate all 26 Letter Stations (A to Z complete, no letters skipped)
-        // Arranged neatly in 5 rows across Zone 1 (South Meadow: z = 54 down to z = 14)
-        const GENERATED_LETTER_STATIONS = ALPHABET_A_TO_Z.map((item, idx) => {
-            let x = 0, z = 54;
+        function getGridPositionInZone(idx, startZ) {
             if (idx < 24) {
-                const row = Math.floor(idx / 6); // 4 rows of 6 letters (A-X)
+                const row = Math.floor(idx / 6); // 4 rows of 6 stations
                 const col = idx % 6;
                 const xPositions = [-22, -13.5, -5.5, 5.5, 13.5, 22];
-                x = xPositions[col];
-                z = 54 - row * 10; // z = 54, 44, 34, 24
+                return { x: xPositions[col], z: startZ - row * 9 };
             } else {
-                // Y and Z placed prominently at the front of Zone 1 (z = 14)
-                x = idx === 24 ? -8 : 8;
-                z = 14;
+                // Y and Z placed at the front row of each zone
+                return { x: idx === 24 ? -8 : 8, z: startZ - 36 };
             }
+        }
 
-            // Pick 2 distractor letters for the interactive quiz
-            const wrong1 = ALPHABET_A_TO_Z[(idx + 3) % 26];
-            const wrong2 = ALPHABET_A_TO_Z[(idx + 9) % 26];
-            const rawOptions = [
-                { text: `${item.letter} - ${item.word}`, value: item.letter, emoji: item.emoji, correct: true },
-                { text: `${wrong1.letter} - ${wrong1.word}`, value: wrong1.letter, emoji: wrong1.emoji, correct: false },
-                { text: `${wrong2.letter} - ${wrong2.word}`, value: wrong2.letter, emoji: wrong2.emoji, correct: false }
+        function rotateThreeOptions(rawOptions, shiftSeed) {
+            const s = shiftSeed % 3;
+            return [
+                rawOptions[(0 + s) % 3],
+                rawOptions[(1 + s) % 3],
+                rawOptions[(2 + s) % 3]
             ];
-            // Deterministic rotation of option positions so the correct answer isn't always first
-            const shift = idx % 3;
-            const rotatedOptions = [
-                rawOptions[(0 + shift) % 3],
-                rawOptions[(1 + shift) % 3],
-                rawOptions[(2 + shift) % 3]
-            ];
+        }
 
+        // 1. ZONE 1: DUNIA HURUF (26 Pos A-Z, z = 90 down to 54)
+        const GENERATED_LETTER_STATIONS = CURRICULUM_AZ.map((item, idx) => {
+            const pos = getGridPositionInZone(idx, 90);
+            const w1 = CURRICULUM_AZ[(idx + 3) % 26];
+            const w2 = CURRICULUM_AZ[(idx + 9) % 26];
             return {
                 id: `huruf_${item.letter.toLowerCase()}`,
                 zone: 1,
@@ -451,172 +568,114 @@
                 label: item.letter,
                 title: `Pos Huruf ${item.letter} (${item.word})`,
                 color: LETTER_COLORS[idx % LETTER_COLORS.length],
-                x,
-                z,
+                x: pos.x,
+                z: pos.z,
                 emoji: item.emoji,
                 letter: item.letter,
                 word: item.word.toUpperCase(),
                 speech: `Huruf ${item.letter}. ${item.letter} untuk ${item.word}!`,
                 question: `Manakah huruf awalan untuk kata ${item.word.toUpperCase()} ${item.emoji}?`,
-                options: rotatedOptions
+                options: rotateThreeOptions([
+                    { text: `${item.letter} - ${item.word}`, value: item.letter, emoji: item.emoji, correct: true },
+                    { text: `${w1.letter} - ${w1.word}`, value: w1.letter, emoji: w1.emoji, correct: false },
+                    { text: `${w2.letter} - ${w2.word}`, value: w2.letter, emoji: w2.emoji, correct: false }
+                ], idx)
             };
         });
 
-        // 3D World Stations placed across the 4 Zones of the Park (26 Letters + 5 Syllables + 4 Words + 3 Sentences = 38 Pos)
+        // 2. ZONE 2: SUKU KATA (26 Pos A-Z, z = 36 down to 0)
+        const GENERATED_SYLLABLE_STATIONS = CURRICULUM_AZ.map((item, idx) => {
+            const pos = getGridPositionInZone(idx, 36);
+            const isVowelLetter = ['A', 'I', 'U', 'E', 'O'].includes(item.letter);
+            const labelText = isVowelLetter ? `VOKAL ${item.letter}` : `${item.sukuGroup[0]}-${item.sukuGroup[4]}`;
+            const altSyl1 = item.sukuGroup[(item.sukuGroup.indexOf(item.targetSyl) + 1) % 5];
+            const altSyl2 = item.sukuGroup[(item.sukuGroup.indexOf(item.targetSyl) + 2) % 5];
+
+            return {
+                id: `suku_${item.letter.toLowerCase()}`,
+                zone: 2,
+                type: 'syllable',
+                label: labelText,
+                title: `Suku Kata ${item.letter} (${item.sukuGroup.join(' ')})`,
+                color: LETTER_COLORS[(idx + 2) % LETTER_COLORS.length],
+                x: pos.x,
+                z: pos.z,
+                emoji: item.emoji,
+                consonant: item.letter,
+                syllables: item.sukuGroup,
+                targetConsonant: item.letter,
+                targetVowel: item.targetVowel,
+                targetResult: item.targetSyl,
+                wordHint: `${item.syllables.join(' - ')} ${item.emoji}`,
+                question: isVowelLetter
+                    ? `Manakah bunyi vokal awal untuk kata ${item.word.toUpperCase()} ${item.emoji}?`
+                    : `Huruf ${item.letter} digabung dengan ${item.targetVowel} untuk kata ${item.word.toUpperCase()} dibaca...`,
+                options: rotateThreeOptions([
+                    { text: `${item.targetSyl} (${item.word.toUpperCase()} ${item.emoji})`, value: item.targetSyl, correct: true },
+                    { text: `${altSyl1}`, value: altSyl1, correct: false },
+                    { text: `${altSyl2}`, value: altSyl2, correct: false }
+                ], idx + 1)
+            };
+        });
+
+        // 3. ZONE 3: MISI KATA (26 Pos Kata A-Z, z = -18 down to -54)
+        const GENERATED_WORD_STATIONS = CURRICULUM_AZ.map((item, idx) => {
+            const pos = getGridPositionInZone(idx, -18);
+            const w1 = CURRICULUM_AZ[(idx + 4) % 26];
+            const w2 = CURRICULUM_AZ[(idx + 11) % 26];
+            return {
+                id: `kata_${item.letter.toLowerCase()}`,
+                zone: 3,
+                type: 'word',
+                label: item.word.toUpperCase(),
+                title: `Misi Kata ${item.letter}: ${item.word.toUpperCase()}`,
+                color: LETTER_COLORS[(idx + 5) % LETTER_COLORS.length],
+                x: pos.x,
+                z: pos.z,
+                emoji: item.emoji,
+                word: item.word.toUpperCase(),
+                syllables: item.syllables,
+                question: `Perhatikan gambar ${item.emoji}! Manakah kata yang dibaca ${item.syllables.join(' - ')}?`,
+                options: rotateThreeOptions([
+                    { text: item.syllables.join(' - '), emoji: item.emoji, correct: true },
+                    { text: w1.syllables.join(' - '), emoji: w1.emoji, correct: false },
+                    { text: w2.syllables.join(' - '), emoji: w2.emoji, correct: false }
+                ], idx + 2)
+            };
+        });
+
+        // 4. ZONE 4: KALIMAT & ISTANA (26 Pos Kalimat A-Z, z = -72 down to -108)
+        const GENERATED_SENTENCE_STATIONS = CURRICULUM_AZ.map((item, idx) => {
+            const pos = getGridPositionInZone(idx, -72);
+            const w1 = CURRICULUM_AZ[(idx + 5) % 26];
+            const w2 = CURRICULUM_AZ[(idx + 13) % 26];
+            return {
+                id: `kalimat_${item.letter.toLowerCase()}`,
+                zone: 4,
+                type: 'sentence',
+                label: `KALIMAT ${item.letter}`,
+                title: `Kalimat ${item.letter}: "${item.sentence}"`,
+                color: LETTER_COLORS[(idx + 8) % LETTER_COLORS.length],
+                x: pos.x,
+                z: pos.z,
+                emoji: item.emoji,
+                sentence: item.sentence,
+                words: item.words,
+                question: `Pilih gambar dan kalimat yang tepat untuk: "${item.sentence}"`,
+                options: rotateThreeOptions([
+                    { text: `${item.emoji} ${item.sentence}`, emoji: item.emoji, correct: true },
+                    { text: `${w1.emoji} ${w1.sentence}`, emoji: w1.emoji, correct: false },
+                    { text: `${w2.emoji} ${w2.sentence}`, emoji: w2.emoji, correct: false }
+                ], idx)
+            };
+        });
+
+        // Gabungan Seluruh 104 Pos Belajar 3D (26 Huruf + 26 Suku Kata + 26 Kata + 26 Kalimat)
         const WORLD_STATIONS = [
-            // ZONE 1: DUNIA HURUF A-Z LENGKAP (26 Pos dari A sampai Z)
             ...GENERATED_LETTER_STATIONS,
-
-            // ZONE 2: PETUALANGAN SUKU KATA (5 Pos di Taman Tengah)
-            {
-                id: 'suku_b', zone: 2, type: 'syllable', label: 'BA-BO', title: 'Suku Kata B (BA BI BU BE BO)', color: 0xf97316,
-                x: -18, z: -2, emoji: '🧩',
-                consonant: 'B', syllables: ['BA', 'BI', 'BU', 'BE', 'BO'],
-                targetConsonant: 'B', targetVowel: 'O', targetResult: 'BO',
-                wordHint: 'BO - LA ⚽',
-                question: 'Gabungkan huruf B dan O agar menjadi awalan kata BO-LA!',
-                options: [
-                    { text: 'BO (untuk BO-LA ⚽)', value: 'BO', correct: true },
-                    { text: 'BA (untuk BA-JU 👕)', value: 'BA', correct: false },
-                    { text: 'BI (untuk BI-RU 🔵)', value: 'BI', correct: false }
-                ]
-            },
-            {
-                id: 'suku_m', zone: 2, type: 'syllable', label: 'MA-MO', title: 'Suku Kata M (MA MI MU ME MO)', color: 0x8b5cf6,
-                x: -9, z: -4, emoji: '👀',
-                consonant: 'M', syllables: ['MA', 'MI', 'MU', 'ME', 'MO'],
-                targetConsonant: 'M', targetVowel: 'A', targetResult: 'MA',
-                wordHint: 'MA - TA 👀',
-                question: 'Huruf M digabung dengan huruf A dibaca...',
-                options: [
-                    { text: 'MA (untuk MA-TA 👀)', value: 'MA', correct: true },
-                    { text: 'MI (untuk MI-NUM 🥛)', value: 'MI', correct: false },
-                    { text: 'MO (untuk MO-BIL 🚗)', value: 'MO', correct: false }
-                ]
-            },
-            {
-                id: 'suku_s', zone: 2, type: 'syllable', label: 'SA-SO', title: 'Suku Kata S (SA SI SU SE SO)', color: 0x14b8a6,
-                x: 0, z: -2, emoji: '🥛',
-                consonant: 'S', syllables: ['SA', 'SI', 'SU', 'SE', 'SO'],
-                targetConsonant: 'S', targetVowel: 'U', targetResult: 'SU',
-                wordHint: 'SU - SU 🥛',
-                question: 'Huruf S digabung dengan huruf U dibaca...',
-                options: [
-                    { text: 'SU (untuk SU-SU 🥛)', value: 'SU', correct: true },
-                    { text: 'SA (untuk SA-PI 🐄)', value: 'SA', correct: false },
-                    { text: 'SE (untuk SE-PATU 👟)', value: 'SE', correct: false }
-                ]
-            },
-            {
-                id: 'suku_k', zone: 2, type: 'syllable', label: 'KA-KO', title: 'Suku Kata K (KA KI KU KE KO)', color: 0xeab308,
-                x: 9, z: -4, emoji: '🐴',
-                consonant: 'K', syllables: ['KA', 'KI', 'KU', 'KE', 'KO'],
-                targetConsonant: 'K', targetVowel: 'U', targetResult: 'KU',
-                wordHint: 'KU - DA 🐴',
-                question: 'Huruf K digabung dengan U untuk kata KU-DA adalah...',
-                options: [
-                    { text: 'KU (untuk KU-DA 🐴)', value: 'KU', correct: true },
-                    { text: 'KA (untuk KA-KI 🦶)', value: 'KA', correct: false },
-                    { text: 'KO (untuk KO-PI ☕)', value: 'KO', correct: false }
-                ]
-            },
-            {
-                id: 'suku_p', zone: 2, type: 'syllable', label: 'PA-PO', title: 'Suku Kata P (PA PI PU PE PO)', color: 0xec4899,
-                x: 18, z: -2, emoji: '🍌',
-                consonant: 'P', syllables: ['PA', 'PI', 'PU', 'PE', 'PO'],
-                targetConsonant: 'P', targetVowel: 'I', targetResult: 'PI',
-                wordHint: 'PI - SANG 🍌',
-                question: 'Huruf P digabung dengan I untuk kata PI-SANG adalah...',
-                options: [
-                    { text: 'PI (untuk PI-SANG 🍌)', value: 'PI', correct: true },
-                    { text: 'PA (untuk PA-DI 🌾)', value: 'PA', correct: false },
-                    { text: 'PO (untuk PO-HON 🌳)', value: 'PO', correct: false }
-                ]
-            },
-
-            // ZONE 3: MISI MEMBACA KATA (4 Pos di Taman Utara)
-            {
-                id: 'kata_bola', zone: 3, type: 'word', label: 'BOLA', title: 'Misi Kata: BOLA', color: 0x2563eb,
-                x: -15, z: -18, emoji: '⚽',
-                word: 'BOLA', syllables: ['BO', 'LA'],
-                question: 'Perhatikan gambar ⚽! Manakah kata yang berbunyi BO - LA?',
-                options: [
-                    { text: 'BO - LA', emoji: '⚽', correct: true },
-                    { text: 'BU - KU', emoji: '📚', correct: false },
-                    { text: 'BA - JU', emoji: '👕', correct: false }
-                ]
-            },
-            {
-                id: 'kata_buku', zone: 3, type: 'word', label: 'BUKU', title: 'Misi Kata: BUKU', color: 0x059669,
-                x: -5, z: -20, emoji: '📚',
-                word: 'BUKU', syllables: ['BU', 'KU'],
-                question: 'Perhatikan gambar 📚! Pilih tulisan yang berbunyi BU - KU!',
-                options: [
-                    { text: 'BU - KU', emoji: '📚', correct: true },
-                    { text: 'BO - LA', emoji: '⚽', correct: false },
-                    { text: 'KA - KI', emoji: '🦶', correct: false }
-                ]
-            },
-            {
-                id: 'kata_mata', zone: 3, type: 'word', label: 'MATA', title: 'Misi Kata: MATA', color: 0xd97706,
-                x: 5, z: -20, emoji: '👀',
-                word: 'MATA', syllables: ['MA', 'TA'],
-                question: 'Perhatikan gambar 👀! Manakah kata yang dibaca MA - TA?',
-                options: [
-                    { text: 'MA - TA', emoji: '👀', correct: true },
-                    { text: 'ME - JA', emoji: '🪑', correct: false },
-                    { text: 'MU - LUT', emoji: '👄', correct: false }
-                ]
-            },
-            {
-                id: 'kata_sapi', zone: 3, type: 'word', label: 'SAPI', title: 'Misi Kata: SAPI', color: 0xdb2777,
-                x: 15, z: -18, emoji: '🐄',
-                word: 'SAPI', syllables: ['SA', 'PI'],
-                question: 'Perhatikan gambar 🐄! Pilih kata yang tepat untuk SA - PI!',
-                options: [
-                    { text: 'SA - PI', emoji: '🐄', correct: true },
-                    { text: 'SU - SU', emoji: '🥛', correct: false },
-                    { text: 'KU - DA', emoji: '🐴', correct: false }
-                ]
-            },
-
-            // ZONE 4: KALIMAT SEDERHANA & ISTANA BINTANG (3 Pos di Puncak Istana)
-            {
-                id: 'kalimat_1', zone: 4, type: 'sentence', label: 'INI BOLA', title: 'Misi Kalimat 1', color: 0x9333ea,
-                x: -10, z: -34, emoji: '⚽',
-                sentence: 'INI BOLA BUDI',
-                words: ['INI', 'BOLA', 'BUDI'],
-                question: 'Dengarkan dan pilih gambar yang sesuai dengan kalimat: "INI BOLA BUDI"',
-                options: [
-                    { text: '⚽ Anak bermain Bola', emoji: '⚽', correct: true },
-                    { text: '🐄 Sapi makan rumput', emoji: '🐄', correct: false },
-                    { text: '🐟 Ikan di kolam', emoji: '🐟', correct: false }
-                ]
-            },
-            {
-                id: 'kalimat_2', zone: 4, type: 'sentence', label: 'BACA BUKU', title: 'Misi Kalimat 2', color: 0x7c3aed,
-                x: 0, z: -36, emoji: '📚',
-                sentence: 'ANI BACA BUKU',
-                words: ['ANI', 'BACA', 'BUKU'],
-                question: 'Apa yang sedang dilakukan Ani pada kalimat "ANI BACA BUKU"?',
-                options: [
-                    { text: '📚 Membaca Buku Cerita', emoji: '📚', correct: true },
-                    { text: '🍌 Makan Buah Pisang', emoji: '🍌', correct: false },
-                    { text: '🚗 Naik Mobil Merah', emoji: '🚗', correct: false }
-                ]
-            },
-            {
-                id: 'kalimat_3', zone: 4, type: 'sentence', label: 'MINUM SUSU', title: 'Misi Kalimat 3', color: 0xc026d3,
-                x: 10, z: -34, emoji: '🥛',
-                sentence: 'SAYA SUKA SUSU SAPI',
-                words: ['SAYA', 'SUKA', 'SUSU', 'SAPI'],
-                question: 'Minuman sehat apakah yang disebutkan pada kalimat "SAYA SUKA SUSU SAPI"?',
-                options: [
-                    { text: '🥛 Susu Sapi Sehat', emoji: '🥛', correct: true },
-                    { text: '🧢 Topi Biru Baru', emoji: '🧢', correct: false },
-                    { text: '🪑 Meja Kayu', emoji: '🪑', correct: false }
-                ]
-            }
+            ...GENERATED_SYLLABLE_STATIONS,
+            ...GENERATED_WORD_STATIONS,
+            ...GENERATED_SENTENCE_STATIONS
         ];
 
         /********************************************************************
@@ -813,10 +872,10 @@
             const canvas = document.getElementById('game-canvas');
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0x7dd3fc);
-            scene.fog = new THREE.FogExp2(0x7dd3fc, 0.0085);
+            scene.fog = new THREE.FogExp2(0x7dd3fc, 0.0055);
 
-            camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 250);
-            camera.position.set(0, 14, 42);
+            camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 320);
+            camera.position.set(0, 14, 108);
 
             renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -830,13 +889,13 @@
             scene.add(ambientLight);
 
             const dirLight = new THREE.DirectionalLight(0xfffbeb, 0.9);
-            dirLight.position.set(25, 45, 30);
+            dirLight.position.set(25, 65, 30);
             dirLight.castShadow = true;
             dirLight.shadow.mapSize.width = 1024;
             dirLight.shadow.mapSize.height = 1024;
             dirLight.shadow.camera.near = 1;
-            dirLight.shadow.camera.far = 130;
-            const d = 55;
+            dirLight.shadow.camera.far = 260;
+            const d = 125;
             dirLight.shadow.camera.left = -d;
             dirLight.shadow.camera.right = d;
             dirLight.shadow.camera.top = d;
@@ -851,7 +910,7 @@
         }
 
         function buildParkEnvironment() {
-            const groundGeo = new THREE.PlaneGeometry(180, 180);
+            const groundGeo = new THREE.PlaneGeometry(220, 320);
             const groundMat = new THREE.MeshLambertMaterial({ color: 0x4ade80 });
             const ground = new THREE.Mesh(groundGeo, groundMat);
             ground.rotation.x = -Math.PI / 2;
@@ -859,10 +918,10 @@
             scene.add(ground);
 
             const zoneConfigs = [
-                { z: 34, color: 0x86efac, width: 58, depth: 50 },  // Zone 1: Dunia Huruf A-Z Lengkap (26 Pos)
-                { z: -3, color: 0xfde047, width: 52, depth: 16 },  // Zone 2: Suku Kata
-                { z: -19, color: 0xf9a8d4, width: 46, depth: 14 }, // Zone 3: Kata
-                { z: -35, color: 0xd8b4fe, width: 38, depth: 14 }  // Zone 4: Kalimat
+                { z: 72, color: 0x86efac, width: 58, depth: 46 },  // Zone 1: Dunia Huruf (26 Pos A-Z)
+                { z: 18, color: 0xfde047, width: 58, depth: 46 },  // Zone 2: Suku Kata (26 Pos A-Z)
+                { z: -36, color: 0xf9a8d4, width: 58, depth: 46 }, // Zone 3: Misi Kata (26 Pos A-Z)
+                { z: -90, color: 0xd8b4fe, width: 58, depth: 46 }  // Zone 4: Kalimat & Istana (26 Pos A-Z)
             ];
             zoneConfigs.forEach(cfg => {
                 const zGeo = new THREE.BoxGeometry(cfg.width, 0.25, cfg.depth);
@@ -873,31 +932,29 @@
                 scene.add(zMesh);
             });
 
-            const pathGeo = new THREE.BoxGeometry(6, 0.3, 112);
+            const pathGeo = new THREE.BoxGeometry(6, 0.3, 225);
             const pathMat = new THREE.MeshLambertMaterial({ color: 0xfef08a });
             const pathMesh = new THREE.Mesh(pathGeo, pathMat);
-            pathMesh.position.set(0, 0.15, 12);
+            pathMesh.position.set(0, 0.15, -10);
             pathMesh.receiveShadow = true;
             scene.add(pathMesh);
 
-            buildLiteracyCastle(0, -45);
+            buildLiteracyCastle(0, -122);
 
-            const treePositions = [
-                [-31, 56], [31, 56], [-31, 42], [31, 42],
-                [-31, 25], [31, 25], [-31, 10], [31, 10],
-                [-29, -5], [29, -5], [-26, -20], [26, -20],
-                [-22, -35], [22, -35], [-16, 62], [16, 62]
-            ];
+            const treePositions = [];
+            for (let tz = 96; tz >= -116; tz -= 16) {
+                treePositions.push([-32, tz], [32, tz]);
+            }
             treePositions.forEach(([tx, tz], idx) => {
                 createCuteTree(tx, tz, idx % 2 === 0 ? 0x22c55e : 0x16a34a);
             });
 
-            for (let i = 0; i < 14; i++) {
+            for (let i = 0; i < 20; i++) {
                 const cloud = createCloud();
                 cloud.position.set(
-                    (Math.random() - 0.5) * 110,
+                    (Math.random() - 0.5) * 120,
                     18 + Math.random() * 8,
-                    (Math.random() - 0.5) * 120
+                    (Math.random() - 0.5) * 240
                 );
                 clouds.push(cloud);
                 scene.add(cloud);
@@ -1351,7 +1408,7 @@
             ring.position.y = 0.18;
             playerGroup.add(ring);
 
-            playerGroup.position.set(0, 0, 58);
+            playerGroup.position.set(0, 0, 95);
             scene.add(playerGroup);
         }
 
@@ -1400,37 +1457,6 @@
             item.cube.material.map = tex;
             item.cube.material.needsUpdate = true;
             item.pedestal.material.color.setHex(0x22c55e);
-            renderAZQuickBar();
-        }
-
-        function renderAZQuickBar() {
-            const bar = document.getElementById('az-quick-bar');
-            if (!bar) return;
-            bar.innerHTML = ALPHABET_A_TO_Z.map(item => {
-                const stId = `huruf_${item.letter.toLowerCase()}`;
-                const done = gameState.completedStations.has(stId);
-                return `<button onclick="teleportToLetter('${item.letter}')" title="Lompat ke Huruf ${item.letter} (${item.word})"
-                    class="w-7 h-7 md:w-8 md:h-8 rounded-lg font-extrabold text-xs md:text-sm shrink-0 transition transform active:scale-90 border-2 ${
-                        done
-                            ? 'bg-emerald-500 text-white border-emerald-700 shadow-sm'
-                            : 'bg-sky-100 hover:bg-yellow-200 text-sky-900 border-sky-300'
-                    }">
-                    ${item.letter}
-                </button>`;
-            }).join('');
-        }
-
-        function teleportToLetter(letterChar) {
-            const stId = `huruf_${letterChar.toLowerCase()}`;
-            const targetStation = WORLD_STATIONS.find(s => s.id === stId);
-            if (targetStation && playerGroup) {
-                playSoundEffect('jump');
-                playerGroup.position.set(targetStation.x, 1.8, targetStation.z + 2.8);
-                playerGroup.rotation.y = Math.PI;
-                isJumping = true;
-                playerVelocityY = 4;
-                speakIndonesian(`Menuju Pos Huruf ${targetStation.letter}, untuk ${targetStation.word}`);
-            }
         }
 
         /********************************************************************
@@ -1559,7 +1585,7 @@
                     playerGroup.position.z += normZ * speed * dt;
 
                     playerGroup.position.x = Math.max(-27, Math.min(27, playerGroup.position.x));
-                    playerGroup.position.z = Math.max(-39, Math.min(60, playerGroup.position.z));
+                    playerGroup.position.z = Math.max(-115, Math.min(98, playerGroup.position.z));
 
                     const targetAngle = Math.atan2(normX, normZ);
                     playerGroup.rotation.y = targetAngle;
@@ -1637,16 +1663,16 @@
 
         function updateZoneIndicator(zPos) {
             let newZone = 1;
-            let label = 'Area 1: Dunia Huruf A–Z';
-            if (zPos < 5 && zPos >= -11) {
+            let label = 'Area 1: Dunia Huruf (26 Pos A–Z)';
+            if (zPos < 45 && zPos >= -9) {
                 newZone = 2;
-                label = 'Area 2: Petualangan Suku Kata (BA-BI-BU)';
-            } else if (zPos < -11 && zPos >= -27) {
+                label = 'Area 2: Suku Kata (26 Pos A–Z)';
+            } else if (zPos < -9 && zPos >= -63) {
                 newZone = 3;
-                label = 'Area 3: Misi Membaca Kata';
-            } else if (zPos < -27) {
+                label = 'Area 3: Misi Kata (26 Pos A–Z)';
+            } else if (zPos < -63) {
                 newZone = 4;
-                label = 'Area 4: Kalimat Sederhana & Istana';
+                label = 'Area 4: Kalimat & Istana (26 Pos A–Z)';
             }
             if (gameState.currentZone !== newZone) {
                 gameState.currentZone = newZone;
@@ -1658,10 +1684,10 @@
             if (!playerGroup) return;
             playSoundEffect('jump');
             const zoneCoords = {
-                1: { x: 0, z: 57, speech: 'Selamat datang di Area Satu, Dunia 26 Huruf Lengkap dari A sampai Z!' },
-                2: { x: 0, z: 3, speech: 'Selamat datang di Area Dua, Petualangan Suku Kata BA BI BU BE BO!' },
-                3: { x: 0, z: -13, speech: 'Selamat datang di Area Tiga, Misi Membaca Kata dan Gambar!' },
-                4: { x: 0, z: -29, speech: 'Selamat datang di Area Empat, Membaca Kalimat di Istana Bintang!' }
+                1: { x: 0, z: 94, speech: 'Selamat datang di Area Satu, Dunia Huruf A sampai Z!' },
+                2: { x: 0, z: 40, speech: 'Selamat datang di Area Dua, Petualangan Suku Kata lengkap A sampai Z!' },
+                3: { x: 0, z: -14, speech: 'Selamat datang di Area Tiga, Misi Membaca Kata lengkap A sampai Z!' },
+                4: { x: 0, z: -68, speech: 'Selamat datang di Area Empat, Membaca Kalimat dan Istana Juara lengkap A sampai Z!' }
             };
             const target = zoneCoords[zoneNumber];
             if (target) {
@@ -2097,9 +2123,9 @@
             document.getElementById('cert-missions').textContent = `${doneCount} / ${WORLD_STATIONS.length}`;
 
             let rank = 'Petualang Pemula 🌱';
-            if (doneCount >= 15) rank = 'Juara Literasi Utama 👑';
-            else if (doneCount >= 8) rank = 'Pembaca Cilik Hebat 🌟';
-            else if (doneCount >= 3) rank = 'Sahabat Huruf Ceria 🎈';
+            if (doneCount >= 80) rank = 'Juara Literasi Utama 👑';
+            else if (doneCount >= 40) rank = 'Pembaca Cilik Hebat 🌟';
+            else if (doneCount >= 10) rank = 'Sahabat Huruf Ceria 🎈';
             document.getElementById('cert-rank').textContent = rank;
 
             const today = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -2170,7 +2196,6 @@
         window.onload = function () {
             loadSavedState();
             init3DWorld();
-            renderAZQuickBar();
             setupControls();
             animateLoop();
         };
