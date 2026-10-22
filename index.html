@@ -42,11 +42,11 @@
         /* Cute Kid Button Style */
         .btn-kid {
             transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 6px 0 rgba(0,0,0,0.25);
+            box-shadow: 0 5px 0 rgba(0,0,0,0.25);
             transform: translateY(0);
         }
         .btn-kid:active {
-            transform: translateY(5px);
+            transform: translateY(4px);
             box-shadow: 0 1px 0 rgba(0,0,0,0.25);
         }
         .btn-kid:hover {
@@ -63,7 +63,7 @@
         /* Pulse Glow */
         @keyframes pulseRing {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); }
-            70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(250, 204, 21, 0); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(250, 204, 21, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
         }
         .pulse-yellow {
@@ -71,16 +71,16 @@
         }
         /* Custom Scrollbar for Modals */
         ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
         }
         ::-webkit-scrollbar-track {
             background: #fef9c3;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         ::-webkit-scrollbar-thumb {
             background: #f59e0b;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         /* Print styles for certificate */
         @media print {
@@ -110,7 +110,7 @@
     <div id="login-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-gradient-to-b from-sky-400/90 via-teal-300/90 to-emerald-400/90 backdrop-blur-sm p-4">
         <div class="bg-white rounded-3xl border-8 border-yellow-400 shadow-2xl max-w-lg w-full p-6 md:p-8 text-center relative animate-float">
             <!-- Decorative Top Badge -->
-            <div class=" -mt-14 mb-2 inline-block bg-gradient-to-r from-orange-400 to-pink-500 text-white px-6 py-2 rounded-full border-4 border-white shadow-lg text-lg md:text-xl font-bold">
+            <div class="-mt-14 mb-2 inline-block bg-gradient-to-r from-orange-400 to-pink-500 text-white px-6 py-2 rounded-full border-4 border-white shadow-lg text-lg md:text-xl font-bold">
                 🌟 Edisi TK A & TK B 🌟
             </div>
 
@@ -122,238 +122,222 @@
             </p>
 
             <!-- Avatar Picker -->
-            <div class="mt-5">
-                <p class="text-sm font-bold text-sky-800 mb-2">PILIH GAYA KARAKTER ROBLOX-MU:</p>
+            <div class="mt-4">
+                <p class="text-xs md:text-sm font-bold text-sky-800 mb-2">PILIH GAYA KARAKTER ROBLOX-MU:</p>
                 <div class="flex justify-center gap-3" id="avatar-selector">
-                    <button type="button" onclick="selectAvatar('roblox_quran', '#ef4444', '👦🏻')" class="avatar-btn ring-4 ring-pink-500 bg-red-50 hover:bg-red-100 p-3 rounded-2xl border-4 border-red-400 text-3xl transition transform scale-105" data-avatar="roblox_quran">
-                        👦🏻📕<span class="block text-xs font-bold text-red-900 mt-1">Bawa Buku</span>
+                    <button type="button" onclick="selectAvatar('roblox_quran', '#ef4444', '👦🏻')" class="avatar-btn ring-4 ring-pink-500 bg-red-50 hover:bg-red-100 p-2.5 rounded-2xl border-4 border-red-400 text-2xl transition transform scale-105" data-avatar="roblox_quran">
+                        👦🏻📕<span class="block text-[10px] font-bold text-red-900 mt-1">Bawa Buku</span>
                     </button>
-                    <button type="button" onclick="selectAvatar('roblox_tas', '#3b82f6', '👦🏻')" class="avatar-btn bg-slate-100 hover:bg-slate-200 p-3 rounded-2xl border-4 border-slate-400 text-3xl transition" data-avatar="roblox_tas">
-                        👦🏻🎒<span class="block text-xs font-bold text-slate-900 mt-1">Ransel Camo</span>
+                    <button type="button" onclick="selectAvatar('roblox_tas', '#3b82f6', '👦🏻')" class="avatar-btn bg-slate-100 hover:bg-slate-200 p-2.5 rounded-2xl border-4 border-slate-400 text-2xl transition" data-avatar="roblox_tas">
+                        👦🏻🎒<span class="block text-[10px] font-bold text-slate-900 mt-1">Ransel Camo</span>
                     </button>
-                    <button type="button" onclick="selectAvatar('roblox_ceria', '#10b981', '👦🏻')" class="avatar-btn bg-emerald-50 hover:bg-emerald-100 p-3 rounded-2xl border-4 border-emerald-400 text-3xl transition" data-avatar="roblox_ceria">
-                        👦🏻✨<span class="block text-xs font-bold text-emerald-900 mt-1">Santri Ceria</span>
+                    <button type="button" onclick="selectAvatar('roblox_ceria', '#10b981', '👦🏻')" class="avatar-btn bg-emerald-50 hover:bg-emerald-100 p-2.5 rounded-2xl border-4 border-emerald-400 text-2xl transition" data-avatar="roblox_ceria">
+                        👦🏻✨<span class="block text-[10px] font-bold text-emerald-900 mt-1">Santri Ceria</span>
                     </button>
                 </div>
             </div>
 
             <!-- Child Name Input -->
-            <div class="mt-5">
-                <label class="block text-sm font-bold text-sky-800 mb-2" for="player-name-input">SIAPA NAMAMU, ANAK HEBAT?</label>
+            <div class="mt-4">
+                <label class="block text-xs md:text-sm font-bold text-sky-800 mb-1" for="player-name-input">SIAPA NAMAMU, ANAK HEBAT?</label>
                 <input id="player-name-input" type="text" maxlength="18" placeholder="Ketik namamu di sini..." 
-                    class="w-full px-5 py-3 text-xl font-bold text-center text-sky-900 bg-yellow-50 border-4 border-sky-300 rounded-2xl focus:outline-none focus:border-pink-500"
+                    class="w-full px-4 py-2.5 text-lg font-bold text-center text-sky-900 bg-yellow-50 border-4 border-sky-300 rounded-2xl focus:outline-none focus:border-pink-500"
                     value="Budi">
             </div>
 
-            <button onclick="startGame()" class="btn-kid mt-6 w-full bg-gradient-to-r from-green-400 to-emerald-500 text-white text-2xl font-bold py-4 rounded-2xl border-4 border-white shadow-xl flex items-center justify-center gap-3">
+            <button onclick="startGame()" class="btn-kid mt-5 w-full bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xl font-bold py-3.5 rounded-2xl border-4 border-white shadow-xl flex items-center justify-center gap-2">
                 <span>🚀 MULAI PETUALANGAN!</span>
             </button>
         </div>
     </div>
 
-    <!-- 2. TOP HUD (Profile, Stars, Audio Controls, Progress & Certificate) -->
-    <div id="hud-top" class="ui-layer inset-x-0 top-0 p-2 md:p-4 flex flex-col gap-2 hidden">
+    <!-- 2. TOP HUD (Profile, Stars, Audio Controls, Stage Selector) -->
+    <div id="hud-top" class="ui-layer inset-x-0 top-0 p-2 md:p-4 flex flex-col gap-1.5 hidden">
         <div class="flex flex-wrap items-center justify-between gap-2">
             <!-- Player Profile & Stars -->
-            <div class="interactive flex items-center gap-2 md:gap-3 bg-white/95 backdrop-blur border-4 border-yellow-400 rounded-2xl px-3 py-1.5 shadow-lg">
-                <span id="hud-avatar-emoji" class="text-2xl md:text-3xl bg-red-100 p-1.5 rounded-xl border-2 border-red-300">👦🏻</span>
+            <div class="interactive flex items-center gap-2 bg-white/95 backdrop-blur border-3 border-yellow-400 rounded-2xl px-2.5 py-1 shadow-md">
+                <span id="hud-avatar-emoji" class="text-xl md:text-2xl bg-red-100 p-1 rounded-xl border-2 border-red-300">👦🏻</span>
                 <div>
-                    <div class="text-xs text-gray-500 font-bold leading-none">PETUALANG</div>
-                    <div id="hud-player-name" class="text-base md:text-lg font-bold text-sky-800 leading-tight">Budi</div>
+                    <div class="text-[9px] text-gray-500 font-bold leading-none">PETUALANG</div>
+                    <div id="hud-player-name" class="text-sm md:text-base font-bold text-sky-800 leading-tight">Budi</div>
                 </div>
-                <div class="h-8 w-1 bg-yellow-200 rounded-full mx-1"></div>
-                <div class="flex items-center gap-1.5 bg-yellow-100 px-3 py-1 rounded-xl border-2 border-yellow-400">
-                    <span class="text-xl md:text-2xl animate-bounce">⭐</span>
-                    <span id="hud-stars" class="text-lg md:text-xl font-bold text-amber-700">0</span>
+                <div class="h-6 w-0.5 bg-yellow-200 rounded-full mx-0.5"></div>
+                <div class="flex items-center gap-1 bg-yellow-100 px-2 py-0.5 rounded-xl border-2 border-yellow-400">
+                    <span class="text-base animate-bounce">⭐</span>
+                    <span id="hud-stars" class="text-sm md:text-base font-bold text-amber-700">0</span>
                 </div>
             </div>
 
             <!-- Action Buttons (Audio, Dictionary, Progress, Certificate) -->
-            <div class="interactive flex items-center gap-1.5 md:gap-2">
-                <button onclick="speakCurrentZoneHint()" title="Dengarkan Petunjuk" class="btn-kid bg-sky-500 text-white px-3 py-2 rounded-2xl border-2 border-white font-bold text-xs md:text-sm flex items-center gap-1">
+            <div class="interactive flex items-center gap-1">
+                <button onclick="speakCurrentZoneHint()" title="Petunjuk" class="btn-kid bg-sky-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
                     <span>🔊</span> <span class="hidden sm:inline">Petunjuk</span>
                 </button>
-                <button onclick="openDictionaryModal()" title="Kamus Huruf & Suku Kata" class="btn-kid bg-purple-500 text-white px-3 py-2 rounded-2xl border-2 border-white font-bold text-xs md:text-sm flex items-center gap-1">
-                    <span>📖</span> <span class="hidden sm:inline">Kamus Bunyi</span>
+                <button onclick="openDictionaryModal()" title="Kamus" class="btn-kid bg-purple-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
+                    <span>📖</span> <span class="hidden sm:inline">Kamus</span>
                 </button>
-                <button onclick="openProgressModal()" title="Rekap Progres Belajar" class="btn-kid bg-amber-500 text-white px-3 py-2 rounded-2xl border-2 border-white font-bold text-xs md:text-sm flex items-center gap-1">
+                <button onclick="openProgressModal()" title="Rekap" class="btn-kid bg-amber-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
                     <span>📊</span> <span class="hidden sm:inline">Rekap</span>
                 </button>
-                <button onclick="openCertificateModal()" title="Sertifikat Juara" class="btn-kid bg-pink-500 text-white px-3 py-2 rounded-2xl border-2 border-white font-bold text-xs md:text-sm flex items-center gap-1">
-                    <span>🎓</span> <span class="hidden sm:inline">Sertifikat</span>
+                <button onclick="openCertificateModal()" title="Sertifikat" class="btn-kid bg-pink-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
+                    <span>🎓</span> <span class="hidden sm:inline">Sertif</span>
                 </button>
             </div>
         </div>
 
         <!-- 4 Stage Level Selector Pills -->
-        <div class="interactive flex items-center justify-center gap-1.5 md:gap-3 overflow-x-auto py-1">
-            <button onclick="teleportToZone(1)" id="zone-btn-1" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-emerald-500 text-white shadow">
-                <span>🔤</span> <span>1. Dunia Huruf</span>
+        <div class="interactive flex items-center justify-center gap-1 md:gap-2 overflow-x-auto py-0.5">
+            <button onclick="teleportToZone(1)" id="zone-btn-1" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-emerald-500 text-white shadow">
+                <span>🔤</span> <span>1. Huruf (A-Z)</span>
             </button>
-            <button onclick="teleportToZone(2)" id="zone-btn-2" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-amber-500 text-white shadow">
+            <button onclick="teleportToZone(2)" id="zone-btn-2" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-amber-500 text-white shadow">
                 <span>🧩</span> <span>2. Suku Kata</span>
             </button>
-            <button onclick="teleportToZone(3)" id="zone-btn-3" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-pink-500 text-white shadow">
-                <span>🖼️</span> <span>3. Misi Kata</span>
+            <button onclick="teleportToZone(3)" id="zone-btn-3" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-pink-500 text-white shadow">
+                <span>🖼️</span> <span>3. Kata</span>
             </button>
-            <button onclick="teleportToZone(4)" id="zone-btn-4" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-purple-600 text-white shadow">
-                <span>👑</span> <span>4. Kalimat & Istana</span>
+            <button onclick="teleportToZone(4)" id="zone-btn-4" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-purple-600 text-white shadow">
+                <span>👑</span> <span>4. Kalimat</span>
             </button>
         </div>
     </div>
 
     <!-- 3. PROXIMITY INTERACTION PROMPT (Shows when near a 3D station) -->
-    <div id="proximity-banner" class="ui-layer inset-x-0 bottom-36 md:bottom-28 flex justify-center pointer-events-none hidden">
-        <button id="proximity-btn" onclick="triggerNearbyStation()" class="interactive btn-kid pulse-yellow bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 text-amber-950 font-bold text-lg md:text-2xl px-6 py-3 rounded-3xl border-4 border-white shadow-2xl flex items-center gap-3">
-            <span id="proximity-icon" class="text-3xl">🅰️</span>
-            <div class="text-left">
-                <div class="text-xs uppercase tracking-wider text-amber-900 font-bold">Pos Belajar Ditemukan!</div>
-                <div id="proximity-title">Buka Pos Huruf A</div>
+    <div id="proximity-banner" class="ui-layer inset-x-0 bottom-40 md:bottom-28 flex justify-center pointer-events-none hidden px-4">
+        <button id="proximity-btn" onclick="triggerNearbyStation()" class="interactive btn-kid pulse-yellow bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 text-amber-950 font-bold text-base md:text-xl px-4 py-2.5 rounded-2xl border-3 border-white shadow-xl flex items-center gap-2.5 max-w-sm w-full justify-center">
+            <span id="proximity-icon" class="text-2xl">🅰️</span>
+            <div class="text-left truncate">
+                <div class="text-[10px] uppercase tracking-wider text-amber-900 font-bold leading-tight">Pos Belajar Ditemukan!</div>
+                <div id="proximity-title" class="truncate text-sm md:text-base">Buka Pos Huruf A</div>
             </div>
-            <span class="bg-white text-orange-600 px-3 py-1 rounded-xl text-sm font-extrabold">BUKA ▶</span>
+            <span class="bg-white text-orange-600 px-2 py-1 rounded-lg text-xs font-extrabold shrink-0">BUKA ▶</span>
         </button>
     </div>
 
-    <!-- 4. BOTTOM CONTROLS (Virtual Analog Joystick + Quick Action + Camera Reset) -->
-    <div id="hud-bottom" class="ui-layer inset-x-0 bottom-0 p-4 flex items-end justify-between pointer-events-none hidden">
-        <!-- Virtual Analog Joystick -->
-        <div class="interactive flex flex-col items-center">
-            <div id="joystick-zone" class="relative w-28 h-28 md:w-32 md:h-32 rounded-full bg-white/40 backdrop-blur-md border-4 border-white shadow-xl flex items-center justify-center touch-none">
-                <!-- Direction Arrows Hint -->
-                <span class="absolute top-1 text-white/80 text-xs font-bold">▲</span>
-                <span class="absolute bottom-1 text-white/80 text-xs font-bold">▼</span>
-                <span class="absolute left-1.5 text-white/80 text-xs font-bold">◀</span>
-                <span class="absolute right-1.5 text-white/80 text-xs font-bold">▶</span>
-                <!-- Stick Knob -->
-                <div id="joystick-knob" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-b from-yellow-300 to-amber-500 border-4 border-white shadow-lg pointer-events-none transition-transform duration-75"></div>
+    <!-- 4. BOTTOM CONTROLS (Joystick Left, Compact Mission/Action Right) -->
+    <div id="hud-bottom" class="ui-layer inset-x-0 bottom-0 p-3 flex items-end justify-between pointer-events-none gap-2 hidden">
+        <!-- Virtual Analog Joystick (Compact on Mobile) -->
+        <div class="interactive flex flex-col items-center shrink-0">
+            <div id="joystick-zone" class="relative w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/40 backdrop-blur-md border-3 border-white shadow-lg flex items-center justify-center touch-none">
+                <span class="absolute top-0.5 text-white/80 text-[10px] font-bold">▲</span>
+                <span class="absolute bottom-0.5 text-white/80 text-[10px] font-bold">▼</span>
+                <span class="absolute left-1 text-white/80 text-[10px] font-bold">◀</span>
+                <span class="absolute right-1 text-white/80 text-[10px] font-bold">▶</span>
+                <div id="joystick-knob" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-b from-yellow-300 to-amber-500 border-3 border-white shadow pointer-events-none transition-transform duration-75"></div>
             </div>
-            <span class="mt-1 bg-black/40 text-white text-xs px-3 py-0.5 rounded-full font-bold backdrop-blur-sm">
-                Gerakkan Karakter (Joystick / WASD)
+            <span class="mt-0.5 bg-black/40 text-white text-[9px] px-2 py-0.5 rounded-full font-bold backdrop-blur-sm">
+                Joystick / WASD
             </span>
         </div>
 
-        <!-- Mission Tracker & Jump/Action Buttons -->
-        <div class="interactive flex flex-col items-end gap-2">
-            <div class="bg-white/90 backdrop-blur border-4 border-sky-400 rounded-2xl px-3.5 py-2 shadow-lg max-w-xs text-right">
-                <div class="text-xs font-bold text-sky-600 uppercase" id="current-zone-label">Area 1: Dunia Huruf A-Z</div>
-                <div class="text-xs md:text-sm font-bold text-gray-700" id="mission-hint-text">Dekati balok warna-warni di taman!</div>
+        <!-- Right Side: Mission Tracker & Action Buttons (Side-by-side or stacked to avoid overlap) -->
+        <div class="interactive flex flex-col items-end gap-1.5 max-w-[210px] md:max-w-xs">
+            <!-- Mission box (Compact) -->
+            <div class="bg-white/90 backdrop-blur border-2 border-sky-400 rounded-xl px-2.5 py-1.5 shadow-md w-full text-right">
+                <div class="text-[9px] font-bold text-sky-600 uppercase truncate" id="current-zone-label">Area 1: Huruf A-Z</div>
+                <div class="text-[11px] md:text-xs font-bold text-gray-700 truncate" id="mission-hint-text">Dekati balok warna-warni!</div>
             </div>
-            <div class="flex gap-2">
-                <button onclick="jumpPlayer()" class="btn-kid bg-gradient-to-b from-sky-400 to-blue-600 text-white font-bold px-4 py-3 rounded-2xl border-4 border-white shadow-xl text-sm md:text-base">
-                    🦘 Lompat
+            <!-- Action buttons horizontal -->
+            <div class="flex gap-1.5 w-full">
+                <button onclick="jumpPlayer()" class="btn-kid flex-1 bg-gradient-to-b from-sky-400 to-blue-600 text-white font-bold py-2 px-2 rounded-xl border-2 border-white shadow text-xs flex items-center justify-center gap-1">
+                    <span>🦘</span> Lompat
                 </button>
-                <button onclick="findNearestUnfinishedStation()" class="btn-kid bg-gradient-to-b from-pink-400 to-rose-600 text-white font-bold px-4 py-3 rounded-2xl border-4 border-white shadow-xl text-sm md:text-base">
-                    🧭 Cari Pos Berikutnya
+                <button onclick="findNearestUnfinishedStation()" class="btn-kid flex-1 bg-gradient-to-b from-pink-400 to-rose-600 text-white font-bold py-2 px-2 rounded-xl border-2 border-white shadow text-xs flex items-center justify-center gap-1">
+                    <span>🧭</span> Cari Pos
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- 5. LEARNING & INTERACTIVE QUIZ MODAL (Huruf, Suku Kata, Kata, Kalimat) -->
+    <!-- 5. LEARNING & INTERACTIVE QUIZ MODAL -->
     <div id="activity-modal" class="fixed inset-0 z-30 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 md:p-6 hidden">
-        <div class="bg-white rounded-3xl border-8 border-yellow-400 shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto p-5 md:p-7 relative">
-            <!-- Close Button -->
-            <button onclick="closeActivityModal()" class="btn-kid absolute top-3 right-3 bg-rose-500 text-white w-11 h-11 rounded-2xl border-4 border-white font-bold text-xl flex items-center justify-center">
+        <div class="bg-white rounded-3xl border-8 border-yellow-400 shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto p-4 md:p-7 relative">
+            <button onclick="closeActivityModal()" class="btn-kid absolute top-3 right-3 bg-rose-500 text-white w-10 h-10 rounded-2xl border-3 border-white font-bold text-lg flex items-center justify-center">
                 ✕
             </button>
-
-            <!-- Modal Header Badge -->
-            <div id="activity-badge" class="inline-block bg-sky-100 text-sky-700 px-4 py-1 rounded-full text-xs md:text-sm font-bold border-2 border-sky-300 mb-2">
+            <div id="activity-badge" class="inline-block bg-sky-100 text-sky-700 px-3.5 py-1 rounded-full text-xs font-bold border-2 border-sky-300 mb-2">
                 DUNIA HURUF A-Z
             </div>
-
-            <!-- Dynamic Content Container -->
-            <div id="activity-content" class="text-center">
-                <!-- Populated dynamically by JavaScript -->
-            </div>
-
-            <!-- Positive Feedback Banner inside Modal -->
-            <div id="activity-feedback" class="mt-4 hidden p-4 rounded-2xl border-4 text-center font-bold text-lg"></div>
+            <div id="activity-content" class="text-center"></div>
+            <div id="activity-feedback" class="mt-3 hidden p-3 rounded-2xl border-3 text-center font-bold text-base"></div>
         </div>
     </div>
 
-    <!-- 6. KAMUS BUNYI LENGKAP MODAL (Full A-Z & Suku Kata Board) -->
+    <!-- 6. KAMUS BUNYI LENGKAP MODAL -->
     <div id="dictionary-modal" class="fixed inset-0 z-30 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 md:p-6 hidden">
-        <div class="bg-white rounded-3xl border-8 border-purple-400 shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-5 md:p-7 relative">
-            <button onclick="closeDictionaryModal()" class="btn-kid absolute top-3 right-3 bg-rose-500 text-white w-11 h-11 rounded-2xl border-4 border-white font-bold text-xl">✕</button>
+        <div class="bg-white rounded-3xl border-8 border-purple-400 shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-4 md:p-7 relative">
+            <button onclick="closeDictionaryModal()" class="btn-kid absolute top-3 right-3 bg-rose-500 text-white w-10 h-10 rounded-2xl border-3 border-white font-bold text-lg">✕</button>
             
-            <h2 class="text-2xl md:text-3xl font-bold text-purple-700 text-center">📖 Papan Bunyi Pintar A–Z & Suku Kata</h2>
-            <p class="text-center text-gray-600 text-sm mb-4">Klik huruf atau suku kata untuk mendengarkan cara membacanya!</p>
+            <h2 class="text-xl md:text-3xl font-bold text-purple-700 text-center">📖 Papan Bunyi Pintar A–Z & Suku Kata</h2>
+            <p class="text-center text-gray-600 text-xs md:text-sm mb-3">Klik huruf atau suku kata untuk mendengarkan cara membacanya!</p>
 
-            <!-- Tabs -->
-            <div class="flex justify-center gap-2 mb-4">
-                <button onclick="switchDictTab('az')" id="dict-tab-az" class="btn-kid bg-purple-600 text-white px-4 py-2 rounded-xl font-bold text-sm">Huruf A – Z (26 Huruf)</button>
-                <button onclick="switchDictTab('suku')" id="dict-tab-suku" class="btn-kid bg-purple-100 text-purple-800 px-4 py-2 rounded-xl font-bold text-sm">Tabel Suku Kata (BA-BI-BU)</button>
+            <div class="flex justify-center gap-2 mb-3">
+                <button onclick="switchDictTab('az')" id="dict-tab-az" class="btn-kid bg-purple-600 text-white px-3.5 py-1.5 rounded-xl font-bold text-xs">Huruf A – Z (26)</button>
+                <button onclick="switchDictTab('suku')" id="dict-tab-suku" class="btn-kid bg-purple-100 text-purple-800 px-3.5 py-1.5 rounded-xl font-bold text-xs">Suku Kata</button>
             </div>
 
-            <!-- Tab 1: A-Z Grid -->
-            <div id="dict-content-az" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2.5"></div>
-
-            <!-- Tab 2: Suku Kata Grid -->
-            <div id="dict-content-suku" class="hidden space-y-3"></div>
+            <div id="dict-content-az" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2"></div>
+            <div id="dict-content-suku" class="hidden space-y-2.5"></div>
         </div>
     </div>
 
     <!-- 7. REKAP PROGRES BELAJAR MODAL -->
     <div id="progress-modal" class="fixed inset-0 z-30 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 md:p-6 hidden">
-        <div class="bg-white rounded-3xl border-8 border-amber-400 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-5 md:p-7 relative">
-            <button onclick="closeProgressModal()" class="btn-kid absolute top-3 right-3 bg-rose-500 text-white w-11 h-11 rounded-2xl border-4 border-white font-bold text-xl">✕</button>
+        <div class="bg-white rounded-3xl border-8 border-amber-400 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-4 md:p-7 relative">
+            <button onclick="closeProgressModal()" class="btn-kid absolute top-3 right-3 bg-rose-500 text-white w-10 h-10 rounded-2xl border-3 border-white font-bold text-lg">✕</button>
             
-            <h2 class="text-2xl md:text-3xl font-bold text-amber-600 text-center">📊 Laporan Progres Belajar Anak</h2>
-            <p class="text-center text-gray-500 text-sm mb-5">Rekap capaian petualangan literasi untuk Guru & Orang Tua</p>
+            <h2 class="text-xl md:text-3xl font-bold text-amber-600 text-center">📊 Laporan Progres Belajar Anak</h2>
+            <p class="text-center text-gray-500 text-xs md:text-sm mb-4">Rekap capaian petualangan literasi untuk Guru & Orang Tua</p>
 
-            <div id="progress-details" class="space-y-4">
-                <!-- Populated dynamically -->
-            </div>
+            <div id="progress-details" class="space-y-3"></div>
         </div>
     </div>
 
     <!-- 8. SERTIFIKAT KELULUSAN MODAL -->
     <div id="certificate-modal" class="fixed inset-0 z-30 flex items-center justify-center bg-black/65 backdrop-blur-sm p-3 md:p-6 hidden">
         <div class="max-w-2xl w-full">
-            <div id="certificate-card" class="bg-gradient-to-br from-yellow-50 via-white to-sky-50 rounded-3xl border-[10px] border-amber-400 shadow-2xl p-6 md:p-10 text-center relative overflow-hidden">
-                <!-- Corner Ribbons -->
-                <div class="text-4xl md:text-5xl mb-2">👑 🌟 🏆 🌟 👑</div>
-                <div class="text-xs md:text-sm font-bold tracking-widest uppercase text-amber-700 bg-amber-100 inline-block px-4 py-1 rounded-full border border-amber-300">
+            <div id="certificate-card" class="bg-gradient-to-br from-yellow-50 via-white to-sky-50 rounded-3xl border-8 border-amber-400 shadow-2xl p-5 md:p-8 text-center relative overflow-hidden">
+                <div class="text-3xl md:text-4xl mb-1">👑 🌟 🏆 🌟 👑</div>
+                <div class="text-[10px] md:text-xs font-bold tracking-widest uppercase text-amber-700 bg-amber-100 inline-block px-3 py-0.5 rounded-full border border-amber-300">
                     SERTIFIKAT BINTANG LITERASI TK A/B
                 </div>
-                <h2 class="text-2xl md:text-4xl font-extrabold text-sky-700 mt-3">PIAGAM ANAK HEBAT</h2>
-                <p class="text-gray-600 text-sm md:text-base mt-2">Diberikan dengan bangga kepada:</p>
+                <h2 class="text-xl md:text-3xl font-extrabold text-sky-700 mt-2">PIAGAM ANAK HEBAT</h2>
+                <p class="text-gray-600 text-xs md:text-sm mt-1">Diberikan dengan bangga kepada:</p>
                 
-                <div id="cert-child-name" class="text-3xl md:text-5xl font-extrabold text-pink-600 my-3 py-2 border-b-4 border-dashed border-amber-400 inline-block px-8">
+                <div id="cert-child-name" class="text-2xl md:text-4xl font-extrabold text-pink-600 my-2 py-1.5 border-b-4 border-dashed border-amber-400 inline-block px-6">
                     Budi
                 </div>
 
-                <p class="text-gray-700 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-                    Telah berhasil menjelajahi <b>Taman Petualangan Literasi 3D</b>: Mengenal Huruf A–Z, Merangkai Suku Kata (BA-BI-BU-BE-BO), Membaca Kata, serta Kalimat Sederhana dengan penuh semangat!
+                <p class="text-gray-700 text-xs md:text-sm max-w-md mx-auto leading-relaxed">
+                    Telah berhasil menjelajahi <b>Taman Petualangan Literasi 3D</b>: Mengenal Huruf A–Z, Merangkai Suku Kata, Membaca Kata, serta Kalimat Sederhana dengan penuh semangat!
                 </p>
 
-                <div class="grid grid-cols-3 gap-2 my-5 bg-white/90 p-3 rounded-2xl border-2 border-yellow-300 max-w-md mx-auto">
+                <div class="grid grid-cols-3 gap-2 my-4 bg-white/90 p-2.5 rounded-2xl border-2 border-yellow-300 max-w-sm mx-auto">
                     <div>
-                        <div class="text-xs text-gray-500 font-bold">TOTAL BINTANG</div>
-                        <div id="cert-stars" class="text-xl md:text-2xl font-extrabold text-amber-600">⭐ 0</div>
+                        <div class="text-[10px] text-gray-500 font-bold">BINTANG</div>
+                        <div id="cert-stars" class="text-lg md:text-xl font-extrabold text-amber-600">⭐ 0</div>
                     </div>
                     <div>
-                        <div class="text-xs text-gray-500 font-bold">MISI SELESAI</div>
-                        <div id="cert-missions" class="text-xl md:text-2xl font-extrabold text-emerald-600">0 / 104</div>
+                        <div class="text-[10px] text-gray-500 font-bold">MISI</div>
+                        <div id="cert-missions" class="text-lg md:text-xl font-extrabold text-emerald-600">0 / 104</div>
                     </div>
                     <div>
-                        <div class="text-xs text-gray-500 font-bold">PREDIKAT</div>
-                        <div id="cert-rank" class="text-base md:text-lg font-extrabold text-purple-600">Pembaca Cilik</div>
+                        <div class="text-[10px] text-gray-500 font-bold">PREDIKAT</div>
+                        <div id="cert-rank" class="text-sm md:text-base font-extrabold text-purple-600">Pembaca Cilik</div>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between text-xs text-gray-500 mt-4 pt-3 border-t border-gray-200">
+                <div class="flex items-center justify-between text-[11px] text-gray-500 mt-3 pt-2.5 border-t border-gray-200">
                     <div>📅 Tanggal: <span id="cert-date"></span></div>
                     <div>🏅 Petualangan Literasi 3D</div>
                 </div>
             </div>
 
-            <div class="flex justify-center gap-3 mt-4 no-print">
-                <button onclick="window.print()" class="btn-kid bg-emerald-500 text-white font-bold px-6 py-3 rounded-2xl border-4 border-white shadow-lg flex items-center gap-2">
+            <div class="flex justify-center gap-2.5 mt-3 no-print">
+                <button onclick="window.print()" class="btn-kid bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-2xl border-3 border-white shadow-md flex items-center gap-1.5 text-sm">
                     🖨️ Cetak Sertifikat
                 </button>
-                <button onclick="closeCertificateModal()" class="btn-kid bg-rose-500 text-white font-bold px-6 py-3 rounded-2xl border-4 border-white shadow-lg">
+                <button onclick="closeCertificateModal()" class="btn-kid bg-rose-500 text-white font-bold px-5 py-2.5 rounded-2xl border-3 border-white shadow-md text-sm">
                     Tutup
                 </button>
             </div>
@@ -537,12 +521,11 @@
 
         function getGridPositionInZone(idx, startZ) {
             if (idx < 24) {
-                const row = Math.floor(idx / 6); // 4 rows of 6 stations
+                const row = Math.floor(idx / 6);
                 const col = idx % 6;
                 const xPositions = [-22, -13.5, -5.5, 5.5, 13.5, 22];
                 return { x: xPositions[col], z: startZ - row * 9 };
             } else {
-                // Y and Z placed at the front row of each zone
                 return { x: idx === 24 ? -8 : 8, z: startZ - 36 };
             }
         }
@@ -556,7 +539,6 @@
             ];
         }
 
-        // 1. ZONE 1: DUNIA HURUF (26 Pos A-Z, z = 90 down to 54)
         const GENERATED_LETTER_STATIONS = CURRICULUM_AZ.map((item, idx) => {
             const pos = getGridPositionInZone(idx, 90);
             const w1 = CURRICULUM_AZ[(idx + 3) % 26];
@@ -583,7 +565,6 @@
             };
         });
 
-        // 2. ZONE 2: SUKU KATA (26 Pos A-Z, z = 36 down to 0)
         const GENERATED_SYLLABLE_STATIONS = CURRICULUM_AZ.map((item, idx) => {
             const pos = getGridPositionInZone(idx, 36);
             const isVowelLetter = ['A', 'I', 'U', 'E', 'O'].includes(item.letter);
@@ -618,7 +599,6 @@
             };
         });
 
-        // 3. ZONE 3: MISI KATA (26 Pos Kata A-Z, z = -18 down to -54)
         const GENERATED_WORD_STATIONS = CURRICULUM_AZ.map((item, idx) => {
             const pos = getGridPositionInZone(idx, -18);
             const w1 = CURRICULUM_AZ[(idx + 4) % 26];
@@ -644,7 +624,6 @@
             };
         });
 
-        // 4. ZONE 4: KALIMAT & ISTANA (26 Pos Kalimat A-Z, z = -72 down to -108)
         const GENERATED_SENTENCE_STATIONS = CURRICULUM_AZ.map((item, idx) => {
             const pos = getGridPositionInZone(idx, -72);
             const w1 = CURRICULUM_AZ[(idx + 5) % 26];
@@ -670,7 +649,6 @@
             };
         });
 
-        // Gabungan Seluruh 104 Pos Belajar 3D (26 Huruf + 26 Suku Kata + 26 Kata + 26 Kalimat)
         const WORLD_STATIONS = [
             ...GENERATED_LETTER_STATIONS,
             ...GENERATED_SYLLABLE_STATIONS,
@@ -768,7 +746,7 @@
                 osc.start(now);
                 osc.stop(now + 0.22);
             } else if (type === 'success') {
-                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                const notes = [523.25, 659.25, 783.99, 1046.50];
                 notes.forEach((freq, idx) => {
                     const osc = audioCtx.createOscillator();
                     const gain = audioCtx.createGain();
@@ -826,7 +804,6 @@
         let playerVelocityY = 0;
         let isJumping = false;
 
-        // Movement inputs (Keyboard + Virtual Joystick)
         const keysPressed = { up: false, down: false, left: false, right: false };
         const joystickVector = { x: 0, y: 0 };
 
@@ -918,10 +895,10 @@
             scene.add(ground);
 
             const zoneConfigs = [
-                { z: 72, color: 0x86efac, width: 58, depth: 46 },  // Zone 1: Dunia Huruf (26 Pos A-Z)
-                { z: 18, color: 0xfde047, width: 58, depth: 46 },  // Zone 2: Suku Kata (26 Pos A-Z)
-                { z: -36, color: 0xf9a8d4, width: 58, depth: 46 }, // Zone 3: Misi Kata (26 Pos A-Z)
-                { z: -90, color: 0xd8b4fe, width: 58, depth: 46 }  // Zone 4: Kalimat & Istana (26 Pos A-Z)
+                { z: 72, color: 0x86efac, width: 58, depth: 46 },
+                { z: 18, color: 0xfde047, width: 58, depth: 46 },
+                { z: -36, color: 0xf9a8d4, width: 58, depth: 46 },
+                { z: -90, color: 0xd8b4fe, width: 58, depth: 46 }
             ];
             zoneConfigs.forEach(cfg => {
                 const zGeo = new THREE.BoxGeometry(cfg.width, 0.25, cfg.depth);
@@ -1400,7 +1377,7 @@
             playerHeadGroup.add(hairSideR);
 
             playerGroup.add(playerHeadGroup);
-            // 6. GLOWING RING UNDER PLAYER
+
             const ringGeo = new THREE.RingGeometry(0.95, 1.32, 28);
             const ringMat = new THREE.MeshBasicMaterial({ color: 0xfef08a, side: THREE.DoubleSide });
             const ring = new THREE.Mesh(ringGeo, ringMat);
@@ -1486,7 +1463,7 @@
             const zone = document.getElementById('joystick-zone');
             const knob = document.getElementById('joystick-knob');
             let dragging = false;
-            const maxRadius = 38;
+            const maxRadius = 32;
 
             function updateStick(clientX, clientY) {
                 const rect = zone.getBoundingClientRect();
@@ -1663,16 +1640,16 @@
 
         function updateZoneIndicator(zPos) {
             let newZone = 1;
-            let label = 'Area 1: Dunia Huruf (26 Pos A–Z)';
+            let label = 'Area 1: Huruf A–Z';
             if (zPos < 45 && zPos >= -9) {
                 newZone = 2;
-                label = 'Area 2: Suku Kata (26 Pos A–Z)';
+                label = 'Area 2: Suku Kata';
             } else if (zPos < -9 && zPos >= -63) {
                 newZone = 3;
-                label = 'Area 3: Misi Kata (26 Pos A–Z)';
+                label = 'Area 3: Misi Kata';
             } else if (zPos < -63) {
                 newZone = 4;
-                label = 'Area 4: Kalimat & Istana (26 Pos A–Z)';
+                label = 'Area 4: Kalimat & Istana';
             }
             if (gameState.currentZone !== newZone) {
                 gameState.currentZone = newZone;
@@ -1685,9 +1662,9 @@
             playSoundEffect('jump');
             const zoneCoords = {
                 1: { x: 0, z: 94, speech: 'Selamat datang di Area Satu, Dunia Huruf A sampai Z!' },
-                2: { x: 0, z: 40, speech: 'Selamat datang di Area Dua, Petualangan Suku Kata lengkap A sampai Z!' },
-                3: { x: 0, z: -14, speech: 'Selamat datang di Area Tiga, Misi Membaca Kata lengkap A sampai Z!' },
-                4: { x: 0, z: -68, speech: 'Selamat datang di Area Empat, Membaca Kalimat dan Istana Juara lengkap A sampai Z!' }
+                2: { x: 0, z: 40, speech: 'Selamat datang di Area Dua, Petualangan Suku Kata!' },
+                3: { x: 0, z: -14, speech: 'Selamat datang di Area Tiga, Misi Membaca Kata!' },
+                4: { x: 0, z: -68, speech: 'Selamat datang di Area Empat, Membaca Kalimat dan Istana Juara!' }
             };
             const target = zoneCoords[zoneNumber];
             if (target) {
@@ -1797,35 +1774,35 @@
         function renderLetterStation(station, container) {
             container.innerHTML = `
                 <div class="flex flex-col items-center">
-                    <div class="flex items-center justify-center gap-4 my-2">
-                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-sky-400 to-blue-600 text-white flex items-center justify-center text-6xl md:text-7xl font-extrabold border-4 border-yellow-300 shadow-xl">
+                    <div class="flex items-center justify-center gap-3 my-2">
+                        <div class="w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-sky-400 to-blue-600 text-white flex items-center justify-center text-5xl md:text-7xl font-extrabold border-4 border-yellow-300 shadow-xl">
                             ${station.letter}${station.letter.toLowerCase()}
                         </div>
-                        <div class="text-6xl md:text-7xl bg-amber-50 p-4 rounded-3xl border-4 border-amber-200">
+                        <div class="text-5xl md:text-7xl bg-amber-50 p-3 rounded-3xl border-4 border-amber-200">
                             ${station.emoji}
                         </div>
                     </div>
 
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-sky-800 mt-2">
+                    <h3 class="text-xl md:text-3xl font-extrabold text-sky-800 mt-1">
                         ${station.letter} untuk <span class="text-pink-600 underline">${station.word}</span>
                     </h3>
 
                     <button onclick="speakIndonesian('${station.letter}. ${station.letter} untuk ${station.word}')" 
-                        class="btn-kid mt-3 bg-amber-400 text-amber-950 font-bold px-5 py-2.5 rounded-2xl border-2 border-amber-600 flex items-center gap-2 text-base">
+                        class="btn-kid mt-2.5 bg-amber-400 text-amber-950 font-bold px-4 py-2 rounded-xl border-2 border-amber-600 flex items-center gap-2 text-sm">
                         🔊 Dengarkan Bunyi Huruf "${station.letter}"
                     </button>
 
-                    <div class="w-full h-1 bg-gray-100 my-4 rounded-full"></div>
+                    <div class="w-full h-0.5 bg-gray-100 my-3 rounded-full"></div>
 
-                    <p class="text-base md:text-lg font-bold text-gray-700 mb-3">
+                    <p class="text-sm md:text-lg font-bold text-gray-700 mb-2.5">
                         🎯 Kuis Ceria: ${station.question}
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full">
                         ${station.options.map((opt) => `
                             <button onclick="submitQuizAnswer(${opt.correct}, '${opt.text}')" 
-                                class="btn-kid bg-sky-50 hover:bg-yellow-100 border-4 border-sky-300 rounded-2xl p-3 flex flex-col items-center gap-1 text-sky-900 font-bold text-lg">
-                                <span class="text-4xl">${opt.emoji}</span>
+                                class="btn-kid bg-sky-50 hover:bg-yellow-100 border-3 border-sky-300 rounded-2xl p-2.5 flex flex-col items-center gap-1 text-sky-900 font-bold text-base">
+                                <span class="text-3xl">${opt.emoji}</span>
                                 <span>${opt.text}</span>
                             </button>
                         `).join('')}
@@ -1837,43 +1814,43 @@
         function renderSyllableStation(station, container) {
             container.innerHTML = `
                 <div class="flex flex-col items-center">
-                    <h3 class="text-xl md:text-2xl font-extrabold text-purple-700">
+                    <h3 class="text-lg md:text-2xl font-extrabold text-purple-700">
                         Merangkai Suku Kata Huruf "${station.consonant}"
                     </h3>
-                    <p class="text-xs md:text-sm text-gray-500 mb-3">Klik tombol suku kata di bawah untuk mendengar bunyinya!</p>
+                    <p class="text-xs text-gray-500 mb-2">Klik tombol suku kata untuk mendengar bunyinya!</p>
 
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                    <div class="flex flex-wrap justify-center gap-1.5 mb-3">
                         ${station.syllables.map(syl => `
                             <button onclick="speakIndonesian('${syl}')" 
-                                class="btn-kid bg-gradient-to-b from-amber-300 to-amber-500 text-amber-950 font-extrabold text-xl md:text-2xl px-4 py-2.5 rounded-2xl border-4 border-white shadow">
+                                class="btn-kid bg-gradient-to-b from-amber-300 to-amber-500 text-amber-950 font-extrabold text-lg md:text-2xl px-3 py-2 rounded-xl border-3 border-white shadow">
                                 🔊 ${syl}
                             </button>
                         `).join('')}
                     </div>
 
-                    <div class="bg-purple-50 border-4 border-purple-200 rounded-2xl p-3 md:p-4 w-full max-w-md mb-4">
-                        <div class="text-xs font-bold text-purple-600 uppercase mb-1">Rumus Menggabungkan Huruf:</div>
-                        <div class="flex items-center justify-center gap-2 text-2xl md:text-3xl font-extrabold text-purple-900">
-                            <span class="bg-white px-4 py-2 rounded-xl border-2 border-purple-300">${station.targetConsonant}</span>
+                    <div class="bg-purple-50 border-3 border-purple-200 rounded-2xl p-3 w-full max-w-md mb-3">
+                        <div class="text-[10px] font-bold text-purple-600 uppercase mb-1">Rumus Menggabungkan Huruf:</div>
+                        <div class="flex items-center justify-center gap-1.5 text-xl md:text-2xl font-extrabold text-purple-900">
+                            <span class="bg-white px-3 py-1.5 rounded-xl border-2 border-purple-300">${station.targetConsonant}</span>
                             <span>+</span>
-                            <span class="bg-white px-4 py-2 rounded-xl border-2 border-purple-300">${station.targetVowel}</span>
+                            <span class="bg-white px-3 py-1.5 rounded-xl border-2 border-purple-300">${station.targetVowel}</span>
                             <span>=</span>
                             <button onclick="speakIndonesian('${station.targetConsonant} ditambah ${station.targetVowel} dibaca ${station.targetResult}')" 
-                                class="bg-pink-500 text-white px-4 py-2 rounded-xl border-2 border-white shadow">
+                                class="bg-pink-500 text-white px-3 py-1.5 rounded-xl border-2 border-white shadow text-base">
                                 🔊 ${station.targetResult}
                             </button>
                         </div>
-                        <div class="text-sm font-bold text-pink-600 mt-2">Contoh Kata: ${station.wordHint}</div>
+                        <div class="text-xs font-bold text-pink-600 mt-1.5">Contoh Kata: ${station.wordHint}</div>
                     </div>
 
-                    <p class="text-base md:text-lg font-bold text-gray-700 mb-3">
+                    <p class="text-sm md:text-lg font-bold text-gray-700 mb-2.5">
                         🎯 ${station.question}
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full">
                         ${station.options.map(opt => `
                             <button onclick="submitQuizAnswer(${opt.correct}, '${opt.value}')" 
-                                class="btn-kid bg-amber-50 hover:bg-amber-100 border-4 border-amber-300 rounded-2xl p-3.5 font-extrabold text-lg text-amber-900">
+                                class="btn-kid bg-amber-50 hover:bg-amber-100 border-3 border-amber-300 rounded-2xl p-3 font-extrabold text-base text-amber-900">
                                 ${opt.text}
                             </button>
                         `).join('')}
@@ -1885,31 +1862,31 @@
         function renderWordStation(station, container) {
             container.innerHTML = `
                 <div class="flex flex-col items-center">
-                    <div class="text-7xl md:text-8xl bg-pink-50 p-5 rounded-3xl border-4 border-pink-300 shadow-inner my-2 animate-bounce">
+                    <div class="text-6xl md:text-7xl bg-pink-50 p-4 rounded-3xl border-3 border-pink-300 shadow-inner my-1.5 animate-bounce">
                         ${station.emoji}
                     </div>
 
-                    <div class="flex items-center gap-2 my-2">
+                    <div class="flex items-center gap-1.5 my-2">
                         ${station.syllables.map(syl => `
-                            <button onclick="speakIndonesian('${syl}')" class="btn-kid bg-sky-500 text-white text-2xl font-extrabold px-4 py-2 rounded-2xl border-2 border-white">
+                            <button onclick="speakIndonesian('${syl}')" class="btn-kid bg-sky-500 text-white text-xl font-extrabold px-3 py-1.5 rounded-xl border-2 border-white">
                                 🔊 ${syl}
                             </button>
-                        `).join('<span class="text-2xl font-bold text-gray-400">+</span>')}
-                        <span class="text-2xl font-bold text-gray-400">=</span>
-                        <button onclick="speakIndonesian('${station.word}')" class="btn-kid bg-emerald-500 text-white text-2xl font-extrabold px-5 py-2 rounded-2xl border-2 border-white">
+                        `).join('<span class="text-xl font-bold text-gray-400">+</span>')}
+                        <span class="text-xl font-bold text-gray-400">=</span>
+                        <button onclick="speakIndonesian('${station.word}')" class="btn-kid bg-emerald-500 text-white text-xl font-extrabold px-4 py-1.5 rounded-xl border-2 border-white">
                             🔊 ${station.word}
                         </button>
                     </div>
 
-                    <p class="text-base md:text-lg font-bold text-gray-700 mt-4 mb-3">
+                    <p class="text-sm md:text-lg font-bold text-gray-700 mt-2 mb-2.5">
                         🎯 ${station.question}
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full">
                         ${station.options.map(opt => `
                             <button onclick="submitQuizAnswer(${opt.correct}, '${opt.text}')" 
-                                class="btn-kid bg-pink-50 hover:bg-pink-100 border-4 border-pink-300 rounded-2xl p-4 flex flex-col items-center gap-1 font-extrabold text-xl text-pink-900">
-                                <span class="text-3xl">${opt.emoji}</span>
+                                class="btn-kid bg-pink-50 hover:bg-pink-100 border-3 border-pink-300 rounded-2xl p-3 flex flex-col items-center gap-1 font-extrabold text-base text-pink-900">
+                                <span class="text-2xl">${opt.emoji}</span>
                                 <span>${opt.text}</span>
                             </button>
                         `).join('')}
@@ -1921,32 +1898,32 @@
         function renderSentenceStation(station, container) {
             container.innerHTML = `
                 <div class="flex flex-col items-center">
-                    <div class="text-6xl mb-2">${station.emoji}</div>
-                    <p class="text-xs font-bold text-purple-600 uppercase">Ketuk setiap kata untuk mendengarkan:</p>
+                    <div class="text-5xl mb-1">${station.emoji}</div>
+                    <p class="text-[10px] font-bold text-purple-600 uppercase">Ketuk setiap kata untuk mendengarkan:</p>
 
-                    <div class="flex flex-wrap justify-center gap-2 my-3">
+                    <div class="flex flex-wrap justify-center gap-1.5 my-2">
                         ${station.words.map(w => `
                             <button onclick="speakIndonesian('${w}')" 
-                                class="btn-kid bg-purple-100 hover:bg-purple-200 text-purple-900 border-4 border-purple-400 font-extrabold text-2xl px-4 py-2 rounded-2xl">
+                                class="btn-kid bg-purple-100 hover:bg-purple-200 text-purple-900 border-3 border-purple-400 font-extrabold text-xl px-3 py-1.5 rounded-xl">
                                 ${w}
                             </button>
                         `).join('')}
                     </div>
 
                     <button onclick="speakIndonesian('${station.sentence}')" 
-                        class="btn-kid bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold px-6 py-2.5 rounded-2xl border-2 border-white shadow mb-4">
+                        class="btn-kid bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold px-5 py-2 rounded-xl border-2 border-white shadow mb-3 text-sm">
                         🔊 Baca Utuh: "${station.sentence}"
                     </button>
 
-                    <p class="text-base md:text-lg font-bold text-gray-700 mb-3">
+                    <p class="text-sm md:text-lg font-bold text-gray-700 mb-2.5">
                         🎯 ${station.question}
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full">
                         ${station.options.map(opt => `
                             <button onclick="submitQuizAnswer(${opt.correct}, '${opt.text}')" 
-                                class="btn-kid bg-purple-50 hover:bg-purple-100 border-4 border-purple-300 rounded-2xl p-3.5 font-bold text-base text-purple-900 flex flex-col items-center gap-1">
-                                <span class="text-3xl">${opt.emoji}</span>
+                                class="btn-kid bg-purple-50 hover:bg-purple-100 border-3 border-purple-300 rounded-2xl p-3 font-bold text-xs md:text-sm text-purple-900 flex flex-col items-center gap-1">
+                                <span class="text-2xl">${opt.emoji}</span>
                                 <span>${opt.text}</span>
                             </button>
                         `).join('')}
@@ -1976,11 +1953,11 @@
                 document.getElementById('hud-stars').textContent = gameState.stars;
                 saveGameState();
 
-                feedback.className = 'mt-4 p-4 rounded-2xl border-4 bg-emerald-100 border-emerald-400 text-emerald-900 text-center font-bold';
+                feedback.className = 'mt-3 p-3 rounded-2xl border-3 bg-emerald-100 border-emerald-400 text-emerald-900 text-center font-bold text-base';
                 feedback.innerHTML = `
-                    <div class="text-2xl mb-1">🎉 HEBAT SEKALI, ${gameState.playerName.toUpperCase()}! +${earnedStars} ⭐</div>
-                    <p class="text-sm font-normal">Jawabanmu benar! Kamu makin pintar membaca!</p>
-                    <button onclick="closeActivityModal()" class="btn-kid mt-3 bg-emerald-500 text-white px-6 py-2 rounded-xl font-bold">
+                    <div class="text-xl mb-1">🎉 HEBAT SEKALI, ${gameState.playerName.toUpperCase()}! +${earnedStars} ⭐</div>
+                    <p class="text-xs font-normal">Jawabanmu benar! Kamu makin pintar membaca!</p>
+                    <button onclick="closeActivityModal()" class="btn-kid mt-2.5 bg-emerald-500 text-white px-5 py-2 rounded-xl font-bold text-sm">
                         Lanjut Petualangan 🚀
                     </button>
                 `;
@@ -1988,40 +1965,36 @@
                 speakIndonesian(`Hore! Jawabanmu benar! Kamu mendapat bintang!`);
             } else {
                 playSoundEffect('tryagain');
-                feedback.className = 'mt-4 p-4 rounded-2xl border-4 bg-amber-100 border-amber-400 text-amber-900 text-center font-bold';
+                feedback.className = 'mt-3 p-3 rounded-2xl border-3 bg-amber-100 border-amber-400 text-amber-900 text-center font-bold text-sm';
                 feedback.innerHTML = `
-                    <div class="text-xl">😊 Hampir Tepat! Ayo Coba Lagi Ya!</div>
-                    <p class="text-sm font-normal">Dengarkan bunyinya baik-baik lalu pilih lagi.</p>
+                    <div class="text-base">😊 Hampir Tepat! Ayo Coba Lagi Ya!</div>
+                    <p class="text-xs font-normal">Dengarkan bunyinya baik-baik lalu pilih lagi.</p>
                 `;
                 speakIndonesian('Hampir tepat, ayo coba pilih sekali lagi ya anak hebat!');
             }
         }
 
-        /********************************************************************
-         * 7. KAMUS BUNYI A-Z, REKAP PROGRES, SERTIFIKAT & CONFETTI
-         ********************************************************************/
         function populateDictionaryModal() {
             const azGrid = document.getElementById('dict-content-az');
             azGrid.innerHTML = ALPHABET_A_TO_Z.map(item => `
                 <button onclick="speakIndonesian('Huruf ${item.letter}. ${item.letter} untuk ${item.word}')" 
-                    class="btn-kid bg-gradient-to-b from-sky-50 to-sky-100 hover:from-yellow-100 hover:to-amber-100 border-4 border-sky-300 rounded-2xl p-2.5 flex flex-col items-center text-center">
-                    <div class="text-2xl font-extrabold text-sky-700">${item.letter}${item.letter.toLowerCase()}</div>
-                    <div class="text-3xl my-1">${item.emoji}</div>
-                    <div class="text-xs font-bold text-gray-700">${item.word}</div>
-                    <span class="mt-1 text-[10px] bg-sky-600 text-white px-2 py-0.5 rounded-full">🔊 Bunyi</span>
+                    class="btn-kid bg-gradient-to-b from-sky-50 to-sky-100 hover:from-yellow-100 hover:to-amber-100 border-3 border-sky-300 rounded-2xl p-2 flex flex-col items-center text-center">
+                    <div class="text-xl font-extrabold text-sky-700">${item.letter}${item.letter.toLowerCase()}</div>
+                    <div class="text-2xl my-0.5">${item.emoji}</div>
+                    <div class="text-[11px] font-bold text-gray-700 truncate w-full">${item.word}</div>
                 </button>
             `).join('');
 
             const sukuContainer = document.getElementById('dict-content-suku');
             sukuContainer.innerHTML = SYLLABLE_FAMILIES.map(fam => `
-                <div class="bg-amber-50 border-4 border-amber-300 rounded-2xl p-3">
-                    <div class="font-bold text-amber-900 text-sm mb-2">Keluarga Suku Kata "${fam.consonant}":</div>
-                    <div class="grid grid-cols-5 gap-2">
+                <div class="bg-amber-50 border-3 border-amber-300 rounded-2xl p-2.5">
+                    <div class="font-bold text-amber-900 text-xs mb-1.5">Keluarga Suku Kata "${fam.consonant}":</div>
+                    <div class="grid grid-cols-5 gap-1.5">
                         ${fam.syllables.map((syl, i) => `
                             <button onclick="speakIndonesian('${syl}. Contohnya ${fam.examples[i].replace(/[^a-zA-Z -]/g, '')}')" 
-                                class="btn-kid bg-white hover:bg-yellow-200 border-2 border-amber-400 rounded-xl p-2 text-center">
-                                <div class="text-lg md:text-xl font-extrabold text-purple-700">🔊 ${syl}</div>
-                                <div class="text-[11px] font-bold text-gray-600 mt-0.5">${fam.examples[i]}</div>
+                                class="btn-kid bg-white hover:bg-yellow-200 border-2 border-amber-400 rounded-xl p-1.5 text-center">
+                                <div class="text-sm md:text-base font-extrabold text-purple-700">🔊 ${syl}</div>
+                                <div class="text-[9px] font-bold text-gray-600 truncate mt-0.5">${fam.examples[i]}</div>
                             </button>
                         `).join('')}
                     </div>
@@ -2047,13 +2020,13 @@
             if (tab === 'az') {
                 az.classList.remove('hidden');
                 suku.classList.add('hidden');
-                btnAz.className = 'btn-kid bg-purple-600 text-white px-4 py-2 rounded-xl font-bold text-sm';
-                btnSuku.className = 'btn-kid bg-purple-100 text-purple-800 px-4 py-2 rounded-xl font-bold text-sm';
+                btnAz.className = 'btn-kid bg-purple-600 text-white px-3.5 py-1.5 rounded-xl font-bold text-xs';
+                btnSuku.className = 'btn-kid bg-purple-100 text-purple-800 px-3.5 py-1.5 rounded-xl font-bold text-xs';
             } else {
                 az.classList.add('hidden');
                 suku.classList.remove('hidden');
-                btnSuku.className = 'btn-kid bg-purple-600 text-white px-4 py-2 rounded-xl font-bold text-sm';
-                btnAz.className = 'btn-kid bg-purple-100 text-purple-800 px-4 py-2 rounded-xl font-bold text-sm';
+                btnSuku.className = 'btn-kid bg-purple-600 text-white px-3.5 py-1.5 rounded-xl font-bold text-xs';
+                btnAz.className = 'btn-kid bg-purple-100 text-purple-800 px-3.5 py-1.5 rounded-xl font-bold text-xs';
             }
         }
 
@@ -2061,7 +2034,7 @@
             const container = document.getElementById('progress-details');
             const zones = [
                 { id: 1, name: '1. Dunia Huruf (A–Z)' },
-                { id: 2, name: '2. Petualangan Suku Kata (BA-BI-BU)' },
+                { id: 2, name: '2. Petualangan Suku Kata' },
                 { id: 3, name: '3. Misi Membaca Kata' },
                 { id: 4, name: '4. Membaca Kalimat Sederhana' }
             ];
@@ -2071,14 +2044,14 @@
             const overallPct = Math.round((totalDone / totalAll) * 100);
 
             container.innerHTML = `
-                <div class="bg-sky-50 border-4 border-sky-300 rounded-2xl p-4 flex items-center justify-between">
+                <div class="bg-sky-50 border-3 border-sky-300 rounded-2xl p-3 flex items-center justify-between">
                     <div>
-                        <div class="text-xs font-bold text-sky-700">NAMA ANAK</div>
-                        <div class="text-2xl font-extrabold text-sky-900">${gameState.avatarEmoji} ${gameState.playerName}</div>
+                        <div class="text-[10px] font-bold text-sky-700">NAMA ANAK</div>
+                        <div class="text-xl font-extrabold text-sky-900">${gameState.avatarEmoji} ${gameState.playerName}</div>
                     </div>
                     <div class="text-right">
-                        <div class="text-xs font-bold text-amber-700">CAPAIAN TOTAL</div>
-                        <div class="text-2xl font-extrabold text-amber-600">⭐ ${gameState.stars} Bintang (${overallPct}%)</div>
+                        <div class="text-[10px] font-bold text-amber-700">CAPAIAN TOTAL</div>
+                        <div class="text-xl font-extrabold text-amber-600">⭐ ${gameState.stars} (${overallPct}%)</div>
                     </div>
                 </div>
 
@@ -2087,18 +2060,18 @@
                     const doneInZone = stInZone.filter(s => gameState.completedStations.has(s.id));
                     const pct = Math.round((doneInZone.length / stInZone.length) * 100);
                     return `
-                        <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-3.5">
-                            <div class="flex justify-between font-bold text-sm md:text-base text-gray-800 mb-1">
+                        <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-3">
+                            <div class="flex justify-between font-bold text-xs md:text-sm text-gray-800 mb-1">
                                 <span>${z.name}</span>
                                 <span>${doneInZone.length} / ${stInZone.length} Pos (${pct}%)</span>
                             </div>
-                            <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-2">
+                            <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden mb-2">
                                 <div class="h-full bg-emerald-500 transition-all duration-500" style="width: ${pct}%"></div>
                             </div>
-                            <div class="flex flex-wrap gap-1.5">
+                            <div class="flex flex-wrap gap-1 max-h-24 overflow-y-auto">
                                 ${stInZone.map(st => {
                                     const done = gameState.completedStations.has(st.id);
-                                    return `<span class="text-xs px-2.5 py-1 rounded-lg font-bold ${done ? 'bg-emerald-100 text-emerald-800 border border-emerald-400' : 'bg-gray-200 text-gray-600'}">
+                                    return `<span class="text-[10px] px-2 py-0.5 rounded-lg font-bold ${done ? 'bg-emerald-100 text-emerald-800 border border-emerald-400' : 'bg-gray-200 text-gray-600'}">
                                         ${done ? '✅' : '⏳'} ${st.label}
                                     </span>`;
                                 }).join('')}
