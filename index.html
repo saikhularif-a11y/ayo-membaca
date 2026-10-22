@@ -42,11 +42,11 @@
         /* Cute Kid Button Style */
         .btn-kid {
             transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 5px 0 rgba(0,0,0,0.25);
+            box-shadow: 0 4px 0 rgba(0,0,0,0.25);
             transform: translateY(0);
         }
         .btn-kid:active {
-            transform: translateY(4px);
+            transform: translateY(3px);
             box-shadow: 0 1px 0 rgba(0,0,0,0.25);
         }
         .btn-kid:hover {
@@ -107,116 +107,117 @@
     <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
 
     <!-- 1. LOGIN & WELCOME MODAL -->
-    <div id="login-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-gradient-to-b from-sky-400/90 via-teal-300/90 to-emerald-400/90 backdrop-blur-sm p-4">
-        <div class="bg-white rounded-3xl border-8 border-yellow-400 shadow-2xl max-w-lg w-full p-6 md:p-8 text-center relative animate-float">
+    <div id="login-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-gradient-to-b from-sky-400/95 via-teal-300/95 to-emerald-400/95 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl border-8 border-yellow-400 shadow-2xl max-w-lg w-full p-5 md:p-8 text-center relative animate-float max-h-[95vh] overflow-y-auto">
             <!-- Decorative Top Badge -->
-            <div class="-mt-14 mb-2 inline-block bg-gradient-to-r from-orange-400 to-pink-500 text-white px-6 py-2 rounded-full border-4 border-white shadow-lg text-lg md:text-xl font-bold">
+            <div class="-mt-12 md:-mt-14 mb-2 inline-block bg-gradient-to-r from-orange-400 to-pink-500 text-white px-5 py-1.5 rounded-full border-4 border-white shadow-lg text-sm md:text-lg font-bold">
                 🌟 Edisi TK A & TK B 🌟
             </div>
 
-            <h1 class="text-3xl md:text-5xl font-bold text-sky-600 drop-shadow-sm mt-1">
+            <h1 class="text-2xl md:text-4xl font-bold text-sky-600 drop-shadow-sm mt-1">
                 PETUALANGAN<br><span class="text-pink-500">LITERASI 3D</span>
             </h1>
-            <p class="text-gray-600 mt-2 text-sm md:text-base">
+            <p class="text-gray-600 mt-1 text-xs md:text-sm">
                 Jelajahi Taman 3D, Temukan Huruf, Suku Kata, & Membaca Ceria!
             </p>
 
             <!-- Avatar Picker -->
-            <div class="mt-4">
-                <p class="text-xs md:text-sm font-bold text-sky-800 mb-2">PILIH GAYA KARAKTER ROBLOX-MU:</p>
-                <div class="flex justify-center gap-3" id="avatar-selector">
-                    <button type="button" onclick="selectAvatar('roblox_quran', '#ef4444', '👦🏻')" class="avatar-btn ring-4 ring-pink-500 bg-red-50 hover:bg-red-100 p-2.5 rounded-2xl border-4 border-red-400 text-2xl transition transform scale-105" data-avatar="roblox_quran">
-                        👦🏻📕<span class="block text-[10px] font-bold text-red-900 mt-1">Bawa Buku</span>
+            <div class="mt-3">
+                <p class="text-[11px] md:text-xs font-bold text-sky-800 mb-1.5">PILIH GAYA KARAKTER ROBLOX-MU:</p>
+                <div class="flex justify-center gap-2.5" id="avatar-selector">
+                    <button type="button" onclick="selectAvatar('roblox_quran', '#ef4444', '👦🏻')" class="avatar-btn ring-4 ring-pink-500 bg-red-50 hover:bg-red-100 p-2 rounded-2xl border-3 border-red-400 text-xl transition transform scale-105" data-avatar="roblox_quran">
+                        👦🏻📕<span class="block text-[9px] font-bold text-red-900 mt-0.5">Bawa Buku</span>
                     </button>
-                    <button type="button" onclick="selectAvatar('roblox_tas', '#3b82f6', '👦🏻')" class="avatar-btn bg-slate-100 hover:bg-slate-200 p-2.5 rounded-2xl border-4 border-slate-400 text-2xl transition" data-avatar="roblox_tas">
-                        👦🏻🎒<span class="block text-[10px] font-bold text-slate-900 mt-1">Ransel Camo</span>
+                    <button type="button" onclick="selectAvatar('roblox_tas', '#3b82f6', '👦🏻')" class="avatar-btn bg-slate-100 hover:bg-slate-200 p-2 rounded-2xl border-3 border-slate-400 text-xl transition" data-avatar="roblox_tas">
+                        👦🏻🎒<span class="block text-[9px] font-bold text-slate-900 mt-0.5">Ransel Camo</span>
                     </button>
-                    <button type="button" onclick="selectAvatar('roblox_ceria', '#10b981', '👦🏻')" class="avatar-btn bg-emerald-50 hover:bg-emerald-100 p-2.5 rounded-2xl border-4 border-emerald-400 text-2xl transition" data-avatar="roblox_ceria">
-                        👦🏻✨<span class="block text-[10px] font-bold text-emerald-900 mt-1">Santri Ceria</span>
+                    <button type="button" onclick="selectAvatar('roblox_ceria', '#10b981', '👦🏻')" class="avatar-btn bg-emerald-50 hover:bg-emerald-100 p-2 rounded-2xl border-3 border-emerald-400 text-xl transition" data-avatar="roblox_ceria">
+                        👦🏻✨<span class="block text-[9px] font-bold text-emerald-900 mt-0.5">Santri Ceria</span>
                     </button>
                 </div>
             </div>
 
             <!-- Child Name Input -->
-            <div class="mt-4">
-                <label class="block text-xs md:text-sm font-bold text-sky-800 mb-1" for="player-name-input">SIAPA NAMAMU, ANAK HEBAT?</label>
+            <div class="mt-3">
+                <label class="block text-[11px] md:text-xs font-bold text-sky-800 mb-1" for="player-name-input">SIAPA NAMAMU, ANAK HEBAT?</label>
                 <input id="player-name-input" type="text" maxlength="18" placeholder="Ketik namamu di sini..." 
-                    class="w-full px-4 py-2.5 text-lg font-bold text-center text-sky-900 bg-yellow-50 border-4 border-sky-300 rounded-2xl focus:outline-none focus:border-pink-500"
+                    class="w-full px-4 py-2 text-base md:text-lg font-bold text-center text-sky-900 bg-yellow-50 border-3 border-sky-300 rounded-2xl focus:outline-none focus:border-pink-500"
                     value="Budi">
             </div>
 
-            <button onclick="startGame()" class="btn-kid mt-5 w-full bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xl font-bold py-3.5 rounded-2xl border-4 border-white shadow-xl flex items-center justify-center gap-2">
+            <button onclick="startGame()" class="btn-kid mt-4 w-full bg-gradient-to-r from-green-400 to-emerald-500 text-white text-lg font-bold py-3 rounded-2xl border-4 border-white shadow-xl flex items-center justify-center gap-2">
                 <span>🚀 MULAI PETUALANGAN!</span>
             </button>
         </div>
     </div>
 
-    <!-- 2. TOP HUD (Profile, Stars, Audio Controls, Stage Selector) -->
-    <div id="hud-top" class="ui-layer inset-x-0 top-0 p-2 md:p-4 flex flex-col gap-1.5 hidden">
-        <div class="flex flex-wrap items-center justify-between gap-2">
+    <!-- 2. TOP HUD (Profile, Stars, Audio Controls, Stage Selector) - COMPACT MOBILE FRIENDLY -->
+    <div id="hud-top" class="ui-layer inset-x-0 top-0 p-2 flex flex-col gap-1.5 hidden">
+        <div class="flex items-center justify-between gap-1.5">
             <!-- Player Profile & Stars -->
-            <div class="interactive flex items-center gap-2 bg-white/95 backdrop-blur border-3 border-yellow-400 rounded-2xl px-2.5 py-1 shadow-md">
-                <span id="hud-avatar-emoji" class="text-xl md:text-2xl bg-red-100 p-1 rounded-xl border-2 border-red-300">👦🏻</span>
+            <div class="interactive flex items-center gap-1.5 bg-white/95 backdrop-blur border-3 border-yellow-400 rounded-2xl px-2 py-1 shadow-md">
+                <span id="hud-avatar-emoji" class="text-lg bg-red-100 p-1 rounded-xl border-2 border-red-300">👦🏻</span>
                 <div>
-                    <div class="text-[9px] text-gray-500 font-bold leading-none">PETUALANG</div>
-                    <div id="hud-player-name" class="text-sm md:text-base font-bold text-sky-800 leading-tight">Budi</div>
+                    <div id="hud-player-name" class="text-xs font-extrabold text-sky-800 leading-tight">Budi</div>
                 </div>
-                <div class="h-6 w-0.5 bg-yellow-200 rounded-full mx-0.5"></div>
-                <div class="flex items-center gap-1 bg-yellow-100 px-2 py-0.5 rounded-xl border-2 border-yellow-400">
-                    <span class="text-base animate-bounce">⭐</span>
-                    <span id="hud-stars" class="text-sm md:text-base font-bold text-amber-700">0</span>
+                <div class="flex items-center gap-0.5 bg-yellow-100 px-1.5 py-0.5 rounded-xl border-2 border-yellow-400 ml-1">
+                    <span class="text-sm animate-bounce">⭐</span>
+                    <span id="hud-stars" class="text-xs font-extrabold text-amber-700">0</span>
                 </div>
             </div>
 
-            <!-- Action Buttons (Audio, Dictionary, Progress, Certificate) -->
+            <!-- Action Buttons (BGM Toggle, Dictionary, Progress, Certificate, Petunjuk) -->
             <div class="interactive flex items-center gap-1">
-                <button onclick="speakCurrentZoneHint()" title="Petunjuk" class="btn-kid bg-sky-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
-                    <span>🔊</span> <span class="hidden sm:inline">Petunjuk</span>
+                <button onclick="toggleBgm()" id="bgm-toggle-btn" title="Musik BGM" class="btn-kid bg-indigo-500 text-white w-8 h-8 rounded-xl border-2 border-white font-bold text-xs flex items-center justify-center shadow">
+                    🎵
                 </button>
-                <button onclick="openDictionaryModal()" title="Kamus" class="btn-kid bg-purple-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
-                    <span>📖</span> <span class="hidden sm:inline">Kamus</span>
+                <button onclick="speakCurrentZoneHint()" title="Petunjuk" class="btn-kid bg-sky-500 text-white px-2 py-1 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1 shadow">
+                    <span>🔊</span>
                 </button>
-                <button onclick="openProgressModal()" title="Rekap" class="btn-kid bg-amber-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
-                    <span>📊</span> <span class="hidden sm:inline">Rekap</span>
+                <button onclick="openDictionaryModal()" title="Kamus" class="btn-kid bg-purple-500 text-white px-2 py-1 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1 shadow">
+                    <span>📖</span>
                 </button>
-                <button onclick="openCertificateModal()" title="Sertifikat" class="btn-kid bg-pink-500 text-white px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1">
-                    <span>🎓</span> <span class="hidden sm:inline">Sertif</span>
+                <button onclick="openProgressModal()" title="Rekap" class="btn-kid bg-amber-500 text-white px-2 py-1 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1 shadow">
+                    <span>📊</span>
+                </button>
+                <button onclick="openCertificateModal()" title="Sertifikat" class="btn-kid bg-pink-500 text-white px-2 py-1 rounded-xl border-2 border-white font-bold text-xs flex items-center gap-1 shadow">
+                    <span>🎓</span>
                 </button>
             </div>
         </div>
 
         <!-- 4 Stage Level Selector Pills -->
-        <div class="interactive flex items-center justify-center gap-1 md:gap-2 overflow-x-auto py-0.5">
-            <button onclick="teleportToZone(1)" id="zone-btn-1" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-emerald-500 text-white shadow">
+        <div class="interactive flex items-center justify-center gap-1 overflow-x-auto py-0.5">
+            <button onclick="teleportToZone(1)" id="zone-btn-1" class="btn-kid flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-white font-bold text-[10px] bg-emerald-500 text-white shadow shrink-0">
                 <span>🔤</span> <span>1. Huruf (A-Z)</span>
             </button>
-            <button onclick="teleportToZone(2)" id="zone-btn-2" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-amber-500 text-white shadow">
+            <button onclick="teleportToZone(2)" id="zone-btn-2" class="btn-kid flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-white font-bold text-[10px] bg-amber-500 text-white shadow shrink-0">
                 <span>🧩</span> <span>2. Suku Kata</span>
             </button>
-            <button onclick="teleportToZone(3)" id="zone-btn-3" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-pink-500 text-white shadow">
+            <button onclick="teleportToZone(3)" id="zone-btn-3" class="btn-kid flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-white font-bold text-[10px] bg-pink-500 text-white shadow shrink-0">
                 <span>🖼️</span> <span>3. Kata</span>
             </button>
-            <button onclick="teleportToZone(4)" id="zone-btn-4" class="btn-kid flex items-center gap-1 px-2.5 py-1.5 rounded-xl border-2 border-white font-bold text-[11px] md:text-xs bg-purple-600 text-white shadow">
+            <button onclick="teleportToZone(4)" id="zone-btn-4" class="btn-kid flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-white font-bold text-[10px] bg-purple-600 text-white shadow shrink-0">
                 <span>👑</span> <span>4. Kalimat</span>
             </button>
         </div>
     </div>
 
-    <!-- 3. PROXIMITY INTERACTION PROMPT (Shows when near a 3D station) -->
-    <div id="proximity-banner" class="ui-layer inset-x-0 bottom-40 md:bottom-28 flex justify-center pointer-events-none hidden px-4">
-        <button id="proximity-btn" onclick="triggerNearbyStation()" class="interactive btn-kid pulse-yellow bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 text-amber-950 font-bold text-base md:text-xl px-4 py-2.5 rounded-2xl border-3 border-white shadow-xl flex items-center gap-2.5 max-w-sm w-full justify-center">
-            <span id="proximity-icon" class="text-2xl">🅰️</span>
+    <!-- 3. PROXIMITY INTERACTION PROMPT (Stacked safely above joystick) -->
+    <div id="proximity-banner" class="ui-layer inset-x-0 bottom-44 md:bottom-28 flex justify-center pointer-events-none hidden px-4">
+        <button id="proximity-btn" onclick="triggerNearbyStation()" class="interactive btn-kid pulse-yellow bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 text-amber-950 font-bold text-sm md:text-xl px-4 py-2 rounded-2xl border-3 border-white shadow-xl flex items-center gap-2 max-w-xs w-full justify-center">
+            <span id="proximity-icon" class="text-xl">🅰️</span>
             <div class="text-left truncate">
-                <div class="text-[10px] uppercase tracking-wider text-amber-900 font-bold leading-tight">Pos Belajar Ditemukan!</div>
-                <div id="proximity-title" class="truncate text-sm md:text-base">Buka Pos Huruf A</div>
+                <div class="text-[9px] uppercase tracking-wider text-amber-900 font-bold">Pos Belajar!</div>
+                <div id="proximity-title" class="truncate text-xs md:text-sm">Buka Pos Huruf A</div>
             </div>
-            <span class="bg-white text-orange-600 px-2 py-1 rounded-lg text-xs font-extrabold shrink-0">BUKA ▶</span>
+            <span class="bg-white text-orange-600 px-2 py-0.5 rounded-lg text-[10px] font-extrabold shrink-0">BUKA ▶</span>
         </button>
     </div>
 
-    <!-- 4. BOTTOM CONTROLS (Joystick Left, Compact Mission/Action Right) -->
-    <div id="hud-bottom" class="ui-layer inset-x-0 bottom-0 p-3 flex items-end justify-between pointer-events-none gap-2 hidden">
-        <!-- Virtual Analog Joystick (Compact on Mobile) -->
+    <!-- 4. BOTTOM CONTROLS (Joystick Left, Mission & Action Right - NO OVERLAP) -->
+    <div id="hud-bottom" class="ui-layer inset-x-0 bottom-0 p-2.5 flex items-end justify-between pointer-events-none gap-2 hidden">
+        <!-- Virtual Analog Joystick -->
         <div class="interactive flex flex-col items-center shrink-0">
             <div id="joystick-zone" class="relative w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/40 backdrop-blur-md border-3 border-white shadow-lg flex items-center justify-center touch-none">
                 <span class="absolute top-0.5 text-white/80 text-[10px] font-bold">▲</span>
@@ -230,19 +231,17 @@
             </span>
         </div>
 
-        <!-- Right Side: Mission Tracker & Action Buttons (Side-by-side or stacked to avoid overlap) -->
-        <div class="interactive flex flex-col items-end gap-1.5 max-w-[210px] md:max-w-xs">
-            <!-- Mission box (Compact) -->
-            <div class="bg-white/90 backdrop-blur border-2 border-sky-400 rounded-xl px-2.5 py-1.5 shadow-md w-full text-right">
-                <div class="text-[9px] font-bold text-sky-600 uppercase truncate" id="current-zone-label">Area 1: Huruf A-Z</div>
-                <div class="text-[11px] md:text-xs font-bold text-gray-700 truncate" id="mission-hint-text">Dekati balok warna-warni!</div>
+        <!-- Right Side: Mission Tracker & Compact Buttons -->
+        <div class="interactive flex flex-col items-end gap-1 max-w-[190px] md:max-w-xs">
+            <div class="bg-white/90 backdrop-blur border-2 border-sky-400 rounded-xl px-2 py-1 shadow-md w-full text-right">
+                <div class="text-[8px] font-bold text-sky-600 uppercase truncate" id="current-zone-label">Area 1: Huruf A-Z</div>
+                <div class="text-[10px] font-bold text-gray-700 truncate" id="mission-hint-text">Dekati balok warna-warni!</div>
             </div>
-            <!-- Action buttons horizontal -->
-            <div class="flex gap-1.5 w-full">
-                <button onclick="jumpPlayer()" class="btn-kid flex-1 bg-gradient-to-b from-sky-400 to-blue-600 text-white font-bold py-2 px-2 rounded-xl border-2 border-white shadow text-xs flex items-center justify-center gap-1">
+            <div class="flex gap-1 w-full">
+                <button onclick="jumpPlayer()" class="btn-kid flex-1 bg-gradient-to-b from-sky-400 to-blue-600 text-white font-bold py-1.5 px-2 rounded-xl border-2 border-white shadow text-[11px] flex items-center justify-center gap-1">
                     <span>🦘</span> Lompat
                 </button>
-                <button onclick="findNearestUnfinishedStation()" class="btn-kid flex-1 bg-gradient-to-b from-pink-400 to-rose-600 text-white font-bold py-2 px-2 rounded-xl border-2 border-white shadow text-xs flex items-center justify-center gap-1">
+                <button onclick="findNearestUnfinishedStation()" class="btn-kid flex-1 bg-gradient-to-b from-pink-400 to-rose-600 text-white font-bold py-1.5 px-2 rounded-xl border-2 border-white shadow text-[11px] flex items-center justify-center gap-1">
                     <span>🧭</span> Cari Pos
                 </button>
             </div>
@@ -669,7 +668,8 @@
             completedStations: new Set(),
             currentZone: 1,
             nearbyStation: null,
-            activeStation: null
+            activeStation: null,
+            bgmPlaying: false
         };
 
         function loadSavedState() {
@@ -703,9 +703,11 @@
         }
 
         /********************************************************************
-         * 3. AUDIO ENGINE: INDONESIAN SPEECH SYNTHESIS + WEB AUDIO CHIMES
+         * 3. AUDIO ENGINE & BGM CERIA ANAK (WEB AUDIO SYNTHESIZER)
          ********************************************************************/
         let audioCtx = null;
+        let bgmInterval = null;
+
         function ensureAudioContext() {
             if (!audioCtx) {
                 const AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -713,6 +715,64 @@
             }
             if (audioCtx && audioCtx.state === 'suspended') {
                 audioCtx.resume();
+            }
+        }
+
+        function startBgm() {
+            ensureAudioContext();
+            if (!audioCtx) return;
+            if (gameState.bgmPlaying) return;
+            gameState.bgmPlaying = true;
+            document.getElementById('bgm-toggle-btn').classList.add('ring-4', 'ring-yellow-300');
+
+            // Cheerful kids nursery melody notes (pentatonic scale C major)
+            const melodyNotes = [
+                523.25, 587.33, 659.25, 783.99, 880.00, 783.99, 659.25, 587.33,
+                523.25, 659.25, 783.99, 1046.50, 880.00, 783.99, 659.25, 523.25
+            ];
+            let noteIdx = 0;
+
+            bgmInterval = setInterval(() => {
+                if (!gameState.bgmPlaying || !audioCtx) return;
+                try {
+                    const now = audioCtx.currentTime;
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    
+                    osc.type = (noteIdx % 4 === 0) ? 'triangle' : 'sine';
+                    osc.frequency.setValueAtTime(melodyNotes[noteIdx % melodyNotes.length], now);
+
+                    gain.gain.setValueAtTime(0.035, now);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+
+                    noteIdx++;
+                } catch (e) {}
+            }, 320);
+        }
+
+        function stopBgm() {
+            gameState.bgmPlaying = false;
+            if (bgmInterval) {
+                clearInterval(bgmInterval);
+                bgmInterval = null;
+            }
+            const btn = document.getElementById('bgm-toggle-btn');
+            if (btn) btn.classList.remove('ring-4', 'ring-yellow-300');
+        }
+
+        function toggleBgm() {
+            if (gameState.bgmPlaying) {
+                stopBgm();
+                speakIndonesian('Musik dimatikan');
+            } else {
+                startBgm();
+                speakIndonesian('Musik ceria dinyalakan!');
             }
         }
 
@@ -727,7 +787,7 @@
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(520, now);
                 osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
-                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.setValueAtTime(0.15, now);
                 gain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
@@ -739,7 +799,7 @@
                 osc.type = 'triangle';
                 osc.frequency.setValueAtTime(240, now);
                 osc.frequency.exponentialRampToValueAtTime(620, now + 0.22);
-                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.setValueAtTime(0.2, now);
                 gain.gain.exponentialRampToValueAtTime(0.01, now + 0.22);
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
@@ -752,7 +812,7 @@
                     const gain = audioCtx.createGain();
                     osc.type = 'triangle';
                     osc.frequency.setValueAtTime(freq, now + idx * 0.09);
-                    gain.gain.setValueAtTime(0.25, now + idx * 0.09);
+                    gain.gain.setValueAtTime(0.2, now + idx * 0.09);
                     gain.gain.exponentialRampToValueAtTime(0.008, now + idx * 0.09 + 0.3);
                     osc.connect(gain);
                     gain.connect(audioCtx.destination);
@@ -766,7 +826,7 @@
                     const gain = audioCtx.createGain();
                     osc.type = 'sine';
                     osc.frequency.setValueAtTime(freq, now + idx * 0.14);
-                    gain.gain.setValueAtTime(0.2, now + idx * 0.14);
+                    gain.gain.setValueAtTime(0.18, now + idx * 0.14);
                     gain.gain.exponentialRampToValueAtTime(0.01, now + idx * 0.14 + 0.2);
                     osc.connect(gain);
                     gain.connect(audioCtx.destination);
@@ -1727,6 +1787,7 @@
 
             gameState.started = true;
             saveGameState();
+            startBgm();
 
             speakIndonesian(`Halo ${gameState.playerName}! Selamat datang di Petualangan Literasi Tiga Dimensi. Ayo dekati balok huruf di taman!`);
         }
