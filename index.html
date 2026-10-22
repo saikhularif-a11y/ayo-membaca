@@ -188,7 +188,7 @@
         <!-- 4 Stage Level Selector Pills -->
         <div class="interactive flex items-center justify-center gap-1.5 md:gap-3 overflow-x-auto py-1">
             <button onclick="teleportToZone(1)" id="zone-btn-1" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-emerald-500 text-white shadow">
-                <span>🔤</span> <span>1. Dunia Huruf (A-Z)</span>
+                <span>🔤</span> <span>1. Dunia Huruf (26 Pos A-Z)</span>
             </button>
             <button onclick="teleportToZone(2)" id="zone-btn-2" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-amber-500 text-white shadow">
                 <span>🧩</span> <span>2. Suku Kata (BA-BI-BU)</span>
@@ -199,6 +199,12 @@
             <button onclick="teleportToZone(4)" id="zone-btn-4" class="btn-kid flex items-center gap-1.5 px-3 md:px-4 py-2 rounded-2xl border-4 border-white font-bold text-xs md:text-sm bg-purple-600 text-white shadow">
                 <span>👑</span> <span>4. Kalimat & Istana</span>
             </button>
+        </div>
+
+        <!-- Quick Jump A-Z Bar -->
+        <div class="interactive flex items-center justify-start md:justify-center gap-1 overflow-x-auto py-1 px-2 bg-white/85 backdrop-blur rounded-2xl border-2 border-emerald-400 shadow max-w-4xl mx-auto w-full">
+            <span class="text-[11px] font-extrabold text-emerald-800 px-1.5 shrink-0">Lompat A-Z:</span>
+            <div id="az-quick-bar" class="flex items-center gap-1"></div>
         </div>
     </div>
 
@@ -335,7 +341,7 @@
                     </div>
                     <div>
                         <div class="text-xs text-gray-500 font-bold">MISI SELESAI</div>
-                        <div id="cert-missions" class="text-xl md:text-2xl font-extrabold text-emerald-600">0 / 18</div>
+                        <div id="cert-missions" class="text-xl md:text-2xl font-extrabold text-emerald-600">0 / 38</div>
                     </div>
                     <div>
                         <div class="text-xs text-gray-500 font-bold">PREDIKAT</div>
@@ -376,20 +382,20 @@
             { letter: 'I', word: 'Ikan', emoji: '🐟', phonetic: 'i', desc: 'I untuk Ikan berenang di air.' },
             { letter: 'J', word: 'Jeruk', emoji: '🍊', phonetic: 'je', desc: 'J untuk Jeruk manis segar.' },
             { letter: 'K', word: 'Kucing', emoji: '🐱', phonetic: 'ka', desc: 'K untuk Kucing lucu. Meong!' },
-            { letter: 'L', word: 'Kelinci', emoji: '🐰', phonetic: 'el', desc: 'L untuk Loli & Lampu terang.' },
-            { letter: 'M', word: 'Mangga', emoji: '🥭', phonetic: 'em', desc: 'M untuk Mangga harum.' },
-            { letter: 'N', word: 'Nanas', emoji: '🍍', phonetic: 'en', desc: 'N untuk Nanas kuning.' },
-            { letter: 'O', word: 'Obat', emoji: '💊', phonetic: 'o', desc: 'O untuk Obat supaya sehat.' },
+            { letter: 'L', word: 'Lampu', emoji: '💡', phonetic: 'el', desc: 'L untuk Lampu yang bersinar terang.' },
+            { letter: 'M', word: 'Mangga', emoji: '🥭', phonetic: 'em', desc: 'M untuk Mangga harum manis.' },
+            { letter: 'N', word: 'Nanas', emoji: '🍍', phonetic: 'en', desc: 'N untuk Nanas kuning segar.' },
+            { letter: 'O', word: 'Obat', emoji: '💊', phonetic: 'o', desc: 'O untuk Obat supaya lekas sehat.' },
             { letter: 'P', word: 'Pisang', emoji: '🍌', phonetic: 'pe', desc: 'P untuk Pisang kuning manis.' },
-            { letter: 'Q', word: 'Quran', emoji: '📖', phonetic: 'ki', desc: 'Q untuk Kitab & Qori.' },
-            { letter: 'R', word: 'Rusa', emoji: '🦌', phonetic: 'er', desc: 'R untuk Rusa bertanduk.' },
+            { letter: 'Q', word: 'Quran', emoji: '📖', phonetic: 'ki', desc: 'Q untuk Quran kitab suci.' },
+            { letter: 'R', word: 'Rusa', emoji: '🦌', phonetic: 'er', desc: 'R untuk Rusa bertanduk indah.' },
             { letter: 'S', word: 'Sapi', emoji: '🐄', phonetic: 'es', desc: 'S untuk Sapi penghasil susu.' },
-            { letter: 'T', word: 'Topi', emoji: '🧢', phonetic: 'te', desc: 'T untuk Topi di kepala.' },
-            { letter: 'U', word: 'Ular', emoji: '🐍', phonetic: 'u', desc: 'U untuk Ular panjang.' },
-            { letter: 'V', word: 'Vas', emoji: '🏺', phonetic: 've', desc: 'V untuk Vas bunga indah.' },
-            { letter: 'W', word: 'Wortel', emoji: '🥕', phonetic: 'we', desc: 'W untuk Wortel kesukaan kelinci.' },
-            { letter: 'X', word: 'Xilofon', emoji: '🎼', phonetic: 'eks', desc: 'X untuk Xilofon alat musik.' },
-            { letter: 'Y', word: 'Yoyo', emoji: '🪀', phonetic: 'ye', desc: 'Y untuk Yoyo naik turun.' },
+            { letter: 'T', word: 'Topi', emoji: '🧢', phonetic: 'te', desc: 'T untuk Topi dipakai di kepala.' },
+            { letter: 'U', word: 'Ular', emoji: '🐍', phonetic: 'u', desc: 'U untuk Ular yang panjang.' },
+            { letter: 'V', word: 'Vas', emoji: '🏺', phonetic: 've', desc: 'V untuk Vas tempat bunga indah.' },
+            { letter: 'W', word: 'Wortel', emoji: '🥕', phonetic: 'we', desc: 'W untuk Wortel sayur sehat.' },
+            { letter: 'X', word: 'Xilofon', emoji: '🎼', phonetic: 'eks', desc: 'X untuk Xilofon alat musik pukul.' },
+            { letter: 'Y', word: 'Yoyo', emoji: '🪀', phonetic: 'ye', desc: 'Y untuk Yoyo mainan naik turun.' },
             { letter: 'Z', word: 'Zebra', emoji: '🦓', phonetic: 'zet', desc: 'Z untuk Zebra belang hitam putih.' }
         ];
 
@@ -401,75 +407,65 @@
             { consonant: 'P', syllables: ['PA', 'PI', 'PU', 'PE', 'PO'], examples: ['PA-DI 🌾', 'PI-SANG 🍌', 'PU-LAU 🏝️', 'PE-PA-YA 🍈', 'PO-HON 🌳'] }
         ];
 
-        // 3D World Stations placed across the 4 Zones of the Park
+        const LETTER_COLORS = [
+            0xef4444, 0x3b82f6, 0x10b981, 0xf59e0b, 0x8b5cf6, 0xec4899,
+            0x06b6d4, 0xf97316, 0x14b8a6, 0x6366f1, 0xeab308, 0xd946ef, 0x22c55e
+        ];
+
+        // Generate all 26 Letter Stations (A to Z complete, no letters skipped)
+        // Arranged neatly in 5 rows across Zone 1 (South Meadow: z = 54 down to z = 14)
+        const GENERATED_LETTER_STATIONS = ALPHABET_A_TO_Z.map((item, idx) => {
+            let x = 0, z = 54;
+            if (idx < 24) {
+                const row = Math.floor(idx / 6); // 4 rows of 6 letters (A-X)
+                const col = idx % 6;
+                const xPositions = [-22, -13.5, -5.5, 5.5, 13.5, 22];
+                x = xPositions[col];
+                z = 54 - row * 10; // z = 54, 44, 34, 24
+            } else {
+                // Y and Z placed prominently at the front of Zone 1 (z = 14)
+                x = idx === 24 ? -8 : 8;
+                z = 14;
+            }
+
+            // Pick 2 distractor letters for the interactive quiz
+            const wrong1 = ALPHABET_A_TO_Z[(idx + 3) % 26];
+            const wrong2 = ALPHABET_A_TO_Z[(idx + 9) % 26];
+            const rawOptions = [
+                { text: `${item.letter} - ${item.word}`, value: item.letter, emoji: item.emoji, correct: true },
+                { text: `${wrong1.letter} - ${wrong1.word}`, value: wrong1.letter, emoji: wrong1.emoji, correct: false },
+                { text: `${wrong2.letter} - ${wrong2.word}`, value: wrong2.letter, emoji: wrong2.emoji, correct: false }
+            ];
+            // Deterministic rotation of option positions so the correct answer isn't always first
+            const shift = idx % 3;
+            const rotatedOptions = [
+                rawOptions[(0 + shift) % 3],
+                rawOptions[(1 + shift) % 3],
+                rawOptions[(2 + shift) % 3]
+            ];
+
+            return {
+                id: `huruf_${item.letter.toLowerCase()}`,
+                zone: 1,
+                type: 'letter',
+                label: item.letter,
+                title: `Pos Huruf ${item.letter} (${item.word})`,
+                color: LETTER_COLORS[idx % LETTER_COLORS.length],
+                x,
+                z,
+                emoji: item.emoji,
+                letter: item.letter,
+                word: item.word.toUpperCase(),
+                speech: `Huruf ${item.letter}. ${item.letter} untuk ${item.word}!`,
+                question: `Manakah huruf awalan untuk kata ${item.word.toUpperCase()} ${item.emoji}?`,
+                options: rotatedOptions
+            };
+        });
+
+        // 3D World Stations placed across the 4 Zones of the Park (26 Letters + 5 Syllables + 4 Words + 3 Sentences = 38 Pos)
         const WORLD_STATIONS = [
-            // ZONE 1: DUNIA HURUF A-Z (6 Pos di Taman Selatan)
-            {
-                id: 'huruf_a', zone: 1, type: 'letter', label: 'A', title: 'Pos Huruf A', color: 0xef4444,
-                x: -18, z: 22, emoji: '🐔',
-                letter: 'A', word: 'AYAM', speech: 'Huruf A. A untuk Ayam!',
-                question: 'Huruf apakah yang menjadi awalan kata AYAM?',
-                options: [
-                    { text: 'A - Ayam', value: 'A', emoji: '🐔', correct: true },
-                    { text: 'B - Bola', value: 'B', emoji: '⚽', correct: false },
-                    { text: 'C - Cicak', value: 'C', emoji: '🦎', correct: false }
-                ]
-            },
-            {
-                id: 'huruf_b', zone: 1, type: 'letter', label: 'B', title: 'Pos Huruf B', color: 0x3b82f6,
-                x: -7, z: 24, emoji: '⚽',
-                letter: 'B', word: 'BOLA', speech: 'Huruf B. B untuk Bola!',
-                question: 'Benda bundar untuk bermain sepak bola diawali huruf...',
-                options: [
-                    { text: 'B - Bola', value: 'B', emoji: '⚽', correct: true },
-                    { text: 'D - Domba', value: 'D', emoji: '🐑', correct: false },
-                    { text: 'G - Gajah', value: 'G', emoji: '🐘', correct: false }
-                ]
-            },
-            {
-                id: 'huruf_c', zone: 1, type: 'letter', label: 'C', title: 'Pos Huruf C', color: 0x10b981,
-                x: 6, z: 24, emoji: '🦎',
-                letter: 'C', word: 'CICAK', speech: 'Huruf C. C untuk Cicak di dinding!',
-                question: 'Hewan yang merayap di dinding pada lagu anak adalah...',
-                options: [
-                    { text: 'C - Cicak', value: 'C', emoji: '🦎', correct: true },
-                    { text: 'A - Ayam', value: 'A', emoji: '🐔', correct: false },
-                    { text: 'K - Kucing', value: 'K', emoji: '🐱', correct: false }
-                ]
-            },
-            {
-                id: 'huruf_g', zone: 1, type: 'letter', label: 'G', title: 'Pos Huruf G', color: 0xf59e0b,
-                x: 18, z: 22, emoji: '🐘',
-                letter: 'G', word: 'GAJAH', speech: 'Huruf G. G untuk Gajah besar!',
-                question: 'Pilih huruf yang tepat untuk hewan GAJAH!',
-                options: [
-                    { text: 'G - Gajah', value: 'G', emoji: '🐘', correct: true },
-                    { text: 'I - Ikan', value: 'I', emoji: '🐟', correct: false },
-                    { text: 'P - Pisang', value: 'P', emoji: '🍌', correct: false }
-                ]
-            },
-            {
-                id: 'huruf_i', zone: 1, type: 'letter', label: 'I', title: 'Pos Huruf I', color: 0x06b6d4,
-                x: -13, z: 12, emoji: '🐟',
-                letter: 'I', word: 'IKAN', speech: 'Huruf I. I untuk Ikan berenang!',
-                question: 'Hewan yang hidup di air ini berawalan huruf...',
-                options: [
-                    { text: 'I - Ikan', value: 'I', emoji: '🐟', correct: true },
-                    { text: 'U - Ular', value: 'U', emoji: '🐍', correct: false },
-                    { text: 'S - Sapi', value: 'S', emoji: '🐄', correct: false }
-                ]
-            },
-            {
-                id: 'huruf_s', zone: 1, type: 'letter', label: 'S', title: 'Pos Huruf S', color: 0xec4899,
-                x: 13, z: 12, emoji: '🐄',
-                letter: 'S', word: 'SAPI', speech: 'Huruf S. S untuk Sapi penghasil susu!',
-                question: 'Manakah huruf awal dari kata SAPI?',
-                options: [
-                    { text: 'S - Sapi', value: 'S', emoji: '🐄', correct: true },
-                    { text: 'M - Mangga', value: 'M', emoji: '🥭', correct: false },
-                    { text: 'T - Topi', value: 'T', emoji: '🧢', correct: false }
-                ]
-            },
+            // ZONE 1: DUNIA HURUF A-Z LENGKAP (26 Pos dari A sampai Z)
+            ...GENERATED_LETTER_STATIONS,
 
             // ZONE 2: PETUALANGAN SUKU KATA (5 Pos di Taman Tengah)
             {
@@ -855,7 +851,7 @@
         }
 
         function buildParkEnvironment() {
-            const groundGeo = new THREE.PlaneGeometry(140, 140);
+            const groundGeo = new THREE.PlaneGeometry(180, 180);
             const groundMat = new THREE.MeshLambertMaterial({ color: 0x4ade80 });
             const ground = new THREE.Mesh(groundGeo, groundMat);
             ground.rotation.x = -Math.PI / 2;
@@ -863,7 +859,7 @@
             scene.add(ground);
 
             const zoneConfigs = [
-                { z: 18, color: 0x86efac, width: 52, depth: 20 },  // Zone 1: Huruf
+                { z: 34, color: 0x86efac, width: 58, depth: 50 },  // Zone 1: Dunia Huruf A-Z Lengkap (26 Pos)
                 { z: -3, color: 0xfde047, width: 52, depth: 16 },  // Zone 2: Suku Kata
                 { z: -19, color: 0xf9a8d4, width: 46, depth: 14 }, // Zone 3: Kata
                 { z: -35, color: 0xd8b4fe, width: 38, depth: 14 }  // Zone 4: Kalimat
@@ -877,30 +873,31 @@
                 scene.add(zMesh);
             });
 
-            const pathGeo = new THREE.BoxGeometry(6, 0.3, 74);
+            const pathGeo = new THREE.BoxGeometry(6, 0.3, 112);
             const pathMat = new THREE.MeshLambertMaterial({ color: 0xfef08a });
             const pathMesh = new THREE.Mesh(pathGeo, pathMat);
-            pathMesh.position.set(0, 0.15, -5);
+            pathMesh.position.set(0, 0.15, 12);
             pathMesh.receiveShadow = true;
             scene.add(pathMesh);
 
             buildLiteracyCastle(0, -45);
 
             const treePositions = [
-                [-29, 25], [29, 25], [-29, 10], [29, 10],
+                [-31, 56], [31, 56], [-31, 42], [31, 42],
+                [-31, 25], [31, 25], [-31, 10], [31, 10],
                 [-29, -5], [29, -5], [-26, -20], [26, -20],
-                [-22, -35], [22, -35], [-16, 32], [16, 32]
+                [-22, -35], [22, -35], [-16, 62], [16, 62]
             ];
             treePositions.forEach(([tx, tz], idx) => {
                 createCuteTree(tx, tz, idx % 2 === 0 ? 0x22c55e : 0x16a34a);
             });
 
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 14; i++) {
                 const cloud = createCloud();
                 cloud.position.set(
-                    (Math.random() - 0.5) * 90,
+                    (Math.random() - 0.5) * 110,
                     18 + Math.random() * 8,
-                    (Math.random() - 0.5) * 90
+                    (Math.random() - 0.5) * 120
                 );
                 clouds.push(cloud);
                 scene.add(cloud);
@@ -1346,7 +1343,7 @@
             playerHeadGroup.add(hairSideR);
 
             playerGroup.add(playerHeadGroup);
-
+            // 6. GLOWING RING UNDER PLAYER
             const ringGeo = new THREE.RingGeometry(0.95, 1.32, 28);
             const ringMat = new THREE.MeshBasicMaterial({ color: 0xfef08a, side: THREE.DoubleSide });
             const ring = new THREE.Mesh(ringGeo, ringMat);
@@ -1354,7 +1351,7 @@
             ring.position.y = 0.18;
             playerGroup.add(ring);
 
-            playerGroup.position.set(0, 0, 29);
+            playerGroup.position.set(0, 0, 58);
             scene.add(playerGroup);
         }
 
@@ -1403,6 +1400,37 @@
             item.cube.material.map = tex;
             item.cube.material.needsUpdate = true;
             item.pedestal.material.color.setHex(0x22c55e);
+            renderAZQuickBar();
+        }
+
+        function renderAZQuickBar() {
+            const bar = document.getElementById('az-quick-bar');
+            if (!bar) return;
+            bar.innerHTML = ALPHABET_A_TO_Z.map(item => {
+                const stId = `huruf_${item.letter.toLowerCase()}`;
+                const done = gameState.completedStations.has(stId);
+                return `<button onclick="teleportToLetter('${item.letter}')" title="Lompat ke Huruf ${item.letter} (${item.word})"
+                    class="w-7 h-7 md:w-8 md:h-8 rounded-lg font-extrabold text-xs md:text-sm shrink-0 transition transform active:scale-90 border-2 ${
+                        done
+                            ? 'bg-emerald-500 text-white border-emerald-700 shadow-sm'
+                            : 'bg-sky-100 hover:bg-yellow-200 text-sky-900 border-sky-300'
+                    }">
+                    ${item.letter}
+                </button>`;
+            }).join('');
+        }
+
+        function teleportToLetter(letterChar) {
+            const stId = `huruf_${letterChar.toLowerCase()}`;
+            const targetStation = WORLD_STATIONS.find(s => s.id === stId);
+            if (targetStation && playerGroup) {
+                playSoundEffect('jump');
+                playerGroup.position.set(targetStation.x, 1.8, targetStation.z + 2.8);
+                playerGroup.rotation.y = Math.PI;
+                isJumping = true;
+                playerVelocityY = 4;
+                speakIndonesian(`Menuju Pos Huruf ${targetStation.letter}, untuk ${targetStation.word}`);
+            }
         }
 
         /********************************************************************
@@ -1530,8 +1558,8 @@
                     playerGroup.position.x += normX * speed * dt;
                     playerGroup.position.z += normZ * speed * dt;
 
-                    playerGroup.position.x = Math.max(-26, Math.min(26, playerGroup.position.x));
-                    playerGroup.position.z = Math.max(-39, Math.min(34, playerGroup.position.z));
+                    playerGroup.position.x = Math.max(-27, Math.min(27, playerGroup.position.x));
+                    playerGroup.position.z = Math.max(-39, Math.min(60, playerGroup.position.z));
 
                     const targetAngle = Math.atan2(normX, normZ);
                     playerGroup.rotation.y = targetAngle;
@@ -1630,7 +1658,7 @@
             if (!playerGroup) return;
             playSoundEffect('jump');
             const zoneCoords = {
-                1: { x: 0, z: 27, speech: 'Selamat datang di Area Satu, Dunia Huruf A sampai Z!' },
+                1: { x: 0, z: 57, speech: 'Selamat datang di Area Satu, Dunia 26 Huruf Lengkap dari A sampai Z!' },
                 2: { x: 0, z: 3, speech: 'Selamat datang di Area Dua, Petualangan Suku Kata BA BI BU BE BO!' },
                 3: { x: 0, z: -13, speech: 'Selamat datang di Area Tiga, Misi Membaca Kata dan Gambar!' },
                 4: { x: 0, z: -29, speech: 'Selamat datang di Area Empat, Membaca Kalimat di Istana Bintang!' }
@@ -2142,6 +2170,7 @@
         window.onload = function () {
             loadSavedState();
             init3DWorld();
+            renderAZQuickBar();
             setupControls();
             animateLoop();
         };
